@@ -22,7 +22,7 @@ export function AnimatedLetters({ text, type }: LettersProps) {
 
     const words: any[] = [];
 
-    for (const [, item] of splitWords.entries()) {
+    for (const item of splitWords) {
         words.push(item.split(""));
     }
 
