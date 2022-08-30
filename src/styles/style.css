@@ -334,12 +334,6 @@ svg .logo-elem-1 {
     cursor: auto;
 }
 
-@media only screen and (max-width: 480px) {
-    .open .card-content {
-        max-width: 290px;
-    }
-}
-
 
 .card-image-container {
     /* position: absolute; */
@@ -419,4 +413,14 @@ svg .logo-elem-1 {
     top: 180px;
     padding: 20px;
     background-color: rgba(var(--bg-primary-rgb), 1);
+}
+
+@media only screen and (max-width: 720px) {
+    .open .card-content {
+        max-width: fit-content;
+        top: auto;
+        margin: auto 15px;
+        bottom: 0;
+        border-radius: 15px 15px 0 0;
+    }
 }
