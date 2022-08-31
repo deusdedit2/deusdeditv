@@ -9,7 +9,7 @@ import { Loading } from "../components/Loading";
 
 export default function Home() {
   const { locale } = useRouter();
-  const { t } = useTranslation();
+  const { t } = useTranslation("home");
 
   const data = {
     "projects": [
@@ -118,7 +118,7 @@ export default function Home() {
   const divAnim = {
     visible: { opacity: 1, display: "flex" },
     hidden: { opacity: 0, display: "none" },
-}
+  }
 
   return (
     <>
@@ -135,61 +135,66 @@ export default function Home() {
 
         <div className="section section-large">
 
-          <div className="flex flex-between gap-md">
+          <div className="about flex flex-between gap-md">
             <div className="stiky-texts">
-              <h2>{t('desc.text.top')}</h2>
-              <p>{t('desc.text.bottom')}</p>
+              <h2>{t('about.title')}</h2>
+              <p style={{textAlign: "justify", marginTop: "20px"}}>{t('about.desc')}</p>
             </div>
 
-            <div className="flex flex-column" style={{ gap: "60px" }}>
-              <div className="card-lang">
-                <h3>Python</h3>
-                {/* <img src="https://global-uploads.webflow.com/61d83a2ebb0ae01ab96e841a/6258278907137d656180e11a_diego.png" loading="lazy" alt="" /> */}
-                <div className="content">
-                  {/* <h1 className="headline-32">Diego Fernandes</h1> */}
-                  {/* <p className="p-nlw-16 educator">Co-fundador e CTO na Rocketseat</p> */}
-                  {/* <p className="p-text-14-nlw">Programador há 11 anos com foco nas melhores tecnologias de desenvolvimento web &amp; mobile. Apaixonado por educação e por mudar a vida das pessoas através da programação. Mais de 500.000 pessoas já passaram por um dos seus treinamentos.</p> */}
+            <div className="lang-cards flex flex-column" style={{ gap: "60px" }}>
+              <div className="card-lang gap-md">
+                <div>
+                  <motion.img src="https://media.graphassets.com/j7nUTJtDThOdKIlVR1jv" loading="lazy" alt="" />
                 </div>
+
+                <div>
+                  <h3>Python</h3>
+                </div>
+
               </div>
 
-              <div className="card-lang">
-                <h3>Django</h3>
-                {/* <img src="https://global-uploads.webflow.com/61d83a2ebb0ae01ab96e841a/6258278907137d656180e11a_diego.png" loading="lazy" alt="" /> */}
-                <div className="content">
-                  {/* <h1 className="headline-32">Diego Fernandes</h1> */}
-                  {/* <p className="p-nlw-16 educator">Co-fundador e CTO na Rocketseat</p> */}
-                  {/* <p className="p-text-14-nlw">Programador há 11 anos com foco nas melhores tecnologias de desenvolvimento web &amp; mobile. Apaixonado por educação e por mudar a vida das pessoas através da programação. Mais de 500.000 pessoas já passaram por um dos seus treinamentos.</p> */}
+              <div className="card-lang gap-md">
+                <div>
+                  <motion.img src="https://media.graphassets.com/XoyRduWnTq6vzAThXfcG" loading="lazy" alt="" />
                 </div>
+
+                <div>
+                  <h3>Django</h3>
+                </div>
+
               </div>
 
-              <div className="card-lang">
-                <h3>Typescript</h3>
-                {/* <img src="https://global-uploads.webflow.com/61d83a2ebb0ae01ab96e841a/6258278907137d656180e11a_diego.png" loading="lazy" alt="" /> */}
-                <div className="content">
-                  {/* <h1 className="headline-32">Diego Fernandes</h1> */}
-                  {/* <p className="p-nlw-16 educator">Co-fundador e CTO na Rocketseat</p> */}
-                  {/* <p className="p-text-14-nlw">Programador há 11 anos com foco nas melhores tecnologias de desenvolvimento web &amp; mobile. Apaixonado por educação e por mudar a vida das pessoas através da programação. Mais de 500.000 pessoas já passaram por um dos seus treinamentos.</p> */}
+              <div className="card-lang gap-md">
+                <div>
+                  <motion.img src="https://media.graphassets.com/Rza595n2Rc6ZMKuF2V0q" loading="lazy" alt="" />
                 </div>
+
+                <div>
+                  <h3>Typescript</h3>
+                </div>
+
               </div>
 
-              <div className="card-lang">
-                <h3>React</h3>
-                {/* <img src="https://global-uploads.webflow.com/61d83a2ebb0ae01ab96e841a/6258278907137d656180e11a_diego.png" loading="lazy" alt="" /> */}
-                <div className="content">
-                  {/* <h1 className="headline-32">Diego Fernandes</h1> */}
-                  {/* <p className="p-nlw-16 educator">Co-fundador e CTO na Rocketseat</p> */}
-                  {/* <p className="p-text-14-nlw">Programador há 11 anos com foco nas melhores tecnologias de desenvolvimento web &amp; mobile. Apaixonado por educação e por mudar a vida das pessoas através da programação. Mais de 500.000 pessoas já passaram por um dos seus treinamentos.</p> */}
+              <div className="card-lang gap-md">
+                <div>
+                  <motion.img src="https://media.graphassets.com/wVqBSeHRNOrqvBRg41fw" loading="lazy" alt="" />
                 </div>
+
+                <div>
+                  <h3>React</h3>
+                </div>
+
               </div>
 
-              <div className="card-lang">
-                <h3>Python</h3>
-                {/* <img src="https://global-uploads.webflow.com/61d83a2ebb0ae01ab96e841a/6258278907137d656180e11a_diego.png" loading="lazy" alt="" /> */}
-                <div className="content">
-                  {/* <h1 className="headline-32">Diego Fernandes</h1> */}
-                  {/* <p className="p-nlw-16 educator">Co-fundador e CTO na Rocketseat</p> */}
-                  {/* <p className="p-text-14-nlw">Programador há 11 anos com foco nas melhores tecnologias de desenvolvimento web &amp; mobile. Apaixonado por educação e por mudar a vida das pessoas através da programação. Mais de 500.000 pessoas já passaram por um dos seus treinamentos.</p> */}
+              <div className="card-lang gap-md">
+                <div>
+                  <motion.img src="https://media.graphassets.com/OpNcflykQKqORJHFlqMX" loading="lazy" alt="" />
                 </div>
+
+                <div>
+                  <h3>React Native</h3>
+                </div>
+
               </div>
 
 
