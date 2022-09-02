@@ -417,10 +417,12 @@ svg .logo-elem-2 {
 
 /* PARTE STICKY */
 
-.stiky-texts {
+.sticky-texts {
     position: sticky;
-    top: 180px;
+    /* top: 180px; */
+    top: 143px;
     height: 100%;
+    max-width: 55%;
 }
 
 /* .card-lang{
@@ -471,5 +473,12 @@ svg .logo-elem-2 {
     .lang-cards {
         background-color: rgba(var(--bg-primary-rgb), 1);
         z-index: 7;
+    }
+
+    .sticky-texts {
+        /* top: 35px; */
+        position: relative;
+        top: 0;
+        max-width: 100%;
     }
 }

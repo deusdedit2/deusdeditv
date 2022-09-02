@@ -1,11 +1,17 @@
 {
   "home": "Home",
   "hero": {
-    "top": "A nice",
-    "bottom": "phrase"
+    "top": "Oi, eu sou",
+    "middle": "Deusdedit Vilar",
+    "bottom": "Full-Stack Dev"
   },
   "about": {
-    "title": "A little about me",
+    "title": "A little about myself",
     "desc": "Olá! Eu sou um desenvolvedor de pilha cheia focado no desenvolvimento de Django com Python. Atualmente tenho experiência com Reagir e Reagir Native, e estou procurando expandir minha experiência com Typescript também. Estou sempre pronto para novos desafios e responsabilidades, portanto, se você estiver interessado em me contratar para seu próximo projeto, por favor, não hesite em me contatar! Atualmente, sou freelancer, mas se você tiver uma oportunidade para mim em sua empresa, não hesite em me estender a mão!"
+  },
+  "projects": {
+    "title": "Some of my works",
+    "likeit": "Like it?",
+    "seemore": "See more"
   }
 }

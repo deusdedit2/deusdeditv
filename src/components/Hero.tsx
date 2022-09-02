@@ -7,10 +7,20 @@ import { useTranslation } from "react-i18next";
 export const Hero = () => {
     const { t } = useTranslation("home");
     const placeholderText = [
-        { type: "heading1", text: t("hero.top") },
+        { 
+            type: "heading1",
+            text: t("hero.top"),
+            class: "hero-top" 
+        },
+        { 
+            type: "heading1",
+            text: t("hero.middle"),
+            class: "hero-title" 
+        },
         {
             type: "heading2",
-            text: t("hero.bottom")
+            text: t("hero.bottom"),
+            class: "hero-bottom"
         }
     ];
 
@@ -46,7 +56,7 @@ export const Hero = () => {
 
             <div >
                 {placeholderText.map((item, index) => {
-                    return <AnimatedLetters {...item} key={index} />;
+                    return <AnimatedLetters className={item.class} {...item} key={index} />;
                 })}
             </div>
         </motion.div>

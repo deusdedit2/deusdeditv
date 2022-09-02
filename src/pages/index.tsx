@@ -6,6 +6,35 @@ import { Hero } from "../components/Hero";
 import { Card } from "../components/Card";
 import Head from "next/head";
 import { Loading } from "../components/Loading";
+import Link from "next/link";
+
+const cardLangs = [
+  {
+    "id": "py",
+    "name": "Python",
+    "img": "https://media.graphassets.com/j7nUTJtDThOdKIlVR1jv",
+  },
+  {
+    "id": "dj",
+    "name": "Django",
+    "img": "https://media.graphassets.com/XoyRduWnTq6vzAThXfcG"
+  },
+  {
+    "id": "ts",
+    "name": "Typescript",
+    "img": "https://media.graphassets.com/Rza595n2Rc6ZMKuF2V0q"
+  },
+  {
+    "id": "rjs",
+    "name": "React",
+    "img": "https://media.graphassets.com/wVqBSeHRNOrqvBRg41fw"
+  },
+  {
+    "id": "rn",
+    "name": "React Native",
+    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
+  },
+]
 
 export default function Home() {
   const { locale } = useRouter();
@@ -127,85 +156,50 @@ export default function Home() {
         <link rel="shortcut icon" href="logo2.ico" type="image/x-icon" />
       </Head>
 
-      <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 3 }, display: { delay: 5 }, duration: 9 }}>
+      {/* <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 4 }, display: { delay: 6 }, duration: 9 }}>
         <Loading />
-      </motion.div>
+      </motion.div> */}
       <main className="container">
         <Hero />
 
         <div className="section section-large">
 
           <div className="about flex flex-between gap-md">
-            <div className="stiky-texts">
+            <div className="sticky-texts">
               <h2>{t('about.title')}</h2>
-              <p style={{textAlign: "justify", marginTop: "20px"}}>{t('about.desc')}</p>
-            </div>
-
-            <div className="lang-cards flex flex-column" style={{ gap: "60px" }}>
-              <div className="card-lang gap-md">
-                <div>
-                  <motion.img src="https://media.graphassets.com/j7nUTJtDThOdKIlVR1jv" loading="lazy" alt="" />
-                </div>
-
-                <div>
-                  <h3>Python</h3>
-                </div>
-
-              </div>
-
-              <div className="card-lang gap-md">
-                <div>
-                  <motion.img src="https://media.graphassets.com/XoyRduWnTq6vzAThXfcG" loading="lazy" alt="" />
-                </div>
-
-                <div>
-                  <h3>Django</h3>
-                </div>
-
-              </div>
-
-              <div className="card-lang gap-md">
-                <div>
-                  <motion.img src="https://media.graphassets.com/Rza595n2Rc6ZMKuF2V0q" loading="lazy" alt="" />
-                </div>
-
-                <div>
-                  <h3>Typescript</h3>
-                </div>
-
-              </div>
-
-              <div className="card-lang gap-md">
-                <div>
-                  <motion.img src="https://media.graphassets.com/wVqBSeHRNOrqvBRg41fw" loading="lazy" alt="" />
-                </div>
-
-                <div>
-                  <h3>React</h3>
-                </div>
-
-              </div>
-
-              <div className="card-lang gap-md">
-                <div>
-                  <motion.img src="https://media.graphassets.com/OpNcflykQKqORJHFlqMX" loading="lazy" alt="" />
-                </div>
-
-                <div>
-                  <h3>React Native</h3>
-                </div>
-
-              </div>
-
+              <p style={{ textAlign: "justify", marginTop: "20px" }}>{t('about.desc.first')}</p>
+              <p style={{ textAlign: "justify", marginTop: "20px" }}>{t('about.desc.second')}</p>
+              {/* <p style={{textAlign: "justify", marginTop: "20px"}}>{t('about.desc.third')}</p> */}
 
             </div>
+
+            <ul className="lang-cards flex flex-column" style={{ gap: "60px" }}>
+
+              {
+                cardLangs.map((card) => {
+                  return (
+                    <li key={card.id} className="card-lang gap-md">
+                      <div>
+                        <motion.img src={card.img} loading="lazy" alt="" />
+                      </div>
+
+                      <div>
+                        <h3>{card.name}</h3>
+                      </div>
+
+                    </li>
+                  )
+                })
+              }
+
+            </ul>
 
           </div>
 
         </div>
 
-        <div className="section">
-          <h2>{t('desc.proj')}</h2>
+        <div className="section" id="home_projects">
+          <h2>{t('projects.title')}</h2>
           {/* <div>
                         <motion.hr style={{ border: "none", borderBottom: "1px solid #fff" }} initial={{ rotateY: 90 }} whileInView={{ rotateY: 0 }} transition={{ duration: 1 }} />
                     </div> */}
@@ -228,9 +222,12 @@ export default function Home() {
 
           </motion.ul>
 
-          {/* <div>
-                        <a href="">Ver Mais</a>
-                    </div> */}
+          <div className="see_more">
+            <p>{t('projects.likeit')}</p>
+            <Link href={"/about"}>
+              <a >{t('projects.seemore')}</a>
+            </Link>
+          </div>
 
         </div>
 

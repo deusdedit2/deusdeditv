@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 
 interface LettersProps {
     text: string;
-    type: string;
+    className?: string;
 }
 
-export function AnimatedLetters({ text, type }: LettersProps) {
+export function AnimatedLetters({ text, className }: LettersProps) {
     const item = {
         hidden: {
             y: "200%",
@@ -31,7 +31,7 @@ export function AnimatedLetters({ text, type }: LettersProps) {
     });
 
     return (
-        <h1 className="hero-title">
+        <h1 className={className}>
             {words.map((word, index) => {
                 return (
                     <span className="row-title" key={index}>
