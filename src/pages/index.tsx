@@ -172,13 +172,13 @@ export default function Home() {
           description: 'Description',
           images: [
             {
-              url: 'src_image.png',
+              url: 'https://deusdeditv.vercel.app/src_image.png',
               width: 800,
               height: 600,
               alt: 'Og Image Alt',
             },
             {
-              url: 'src_image.png',
+              url: 'https://deusdeditv.vercel.app/src_image.png',
               width: 800,
               height: 600,
               alt: 'Og Image Alt 2',
