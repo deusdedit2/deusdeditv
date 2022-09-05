@@ -7,6 +7,7 @@ import { Card } from "../components/Card";
 import Head from "next/head";
 import { Loading } from "../components/Loading";
 import Link from "next/link";
+import { NextSeo } from "next-seo";
 
 const cardLangs = [
   {
@@ -28,6 +29,11 @@ const cardLangs = [
     "id": "rjs",
     "name": "React",
     "img": "https://media.graphassets.com/wVqBSeHRNOrqvBRg41fw"
+  },
+  {
+    "id": "rn",
+    "name": "React Native",
+    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
   },
   {
     "id": "rn",
@@ -151,10 +157,39 @@ export default function Home() {
 
   return (
     <>
-      <Head>
+      <NextSeo
+        title="Deusdedit Vilar | Full Stack Dev"
+        additionalLinkTags={[
+          {
+            rel: 'icon',
+            href: 'logo2.ico',
+          }
+        ]}
+        openGraph={{
+          type: 'website',
+          url: 'https://deusdeditv.vercel.app',
+          title: 'Deusdedit Vilar | Full-Stack Dev',
+          description: 'Description',
+          images: [
+            {
+              url: 'src_image.png',
+              width: 800,
+              height: 600,
+              alt: 'Og Image Alt',
+            },
+            {
+              url: 'src_image.png',
+              width: 800,
+              height: 600,
+              alt: 'Og Image Alt 2',
+            },
+          ],
+        }}
+      />
+      {/* <Head>
         <title>Deusdedit Vilar | Full Stack Dev</title>
         <link rel="shortcut icon" href="logo2.ico" type="image/x-icon" />
-      </Head>
+      </Head> */}
 
       {/* <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 4 }, display: { delay: 6 }, duration: 9 }}>
         <Loading />

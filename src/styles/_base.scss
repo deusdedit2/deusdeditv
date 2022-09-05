@@ -108,3 +108,26 @@ a {
 .gap-md {
     gap: 30px;
 }
+
+.logo-container {
+    background: rgba(var(--bg-primary-rgb), 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: space-around;
+    position: fixed;
+    z-index: 999;
+    transition: opacity .5s ease-in-out;
+    pointer-events: none;
+    top: 0;
+    bottom: 0;
+    
+    .logo, .logo2 {
+        width: 10rem;
+        height: auto;
+    }
+}
+

@@ -1,5 +1,15 @@
+$min_width: 320px;
+$max_width: 1200px;
+$min_font: 16px;
+$max_font: 24px;
+
+h1 {
+    @include fluid-type($min_width, $max_width, $min_font, $max_font);
+}
+
 .hero-title {
-    font-size: 4.3rem;
+    // font-size: 4.3rem;
+    @include fluid-type($min_width, $max_width, 30px, 75px);
     text-transform: uppercase;
     position: relative;
 }
