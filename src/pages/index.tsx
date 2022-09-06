@@ -40,6 +40,21 @@ const cardLangs = [
     "name": "React Native",
     "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
   },
+  {
+    "id": "rn",
+    "name": "React Native",
+    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
+  },
+  {
+    "id": "rn",
+    "name": "React Native",
+    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
+  },
+  {
+    "id": "rn",
+    "name": "React Native",
+    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
+  },
 ]
 
 export default function Home() {
@@ -176,13 +191,7 @@ export default function Home() {
               width: 1200,
               height: 630,
               alt: 'Og Image Alt',
-            },
-            {
-              url: 'https://deusdeditv.vercel.app/src_800.png',
-              width: 800,
-              height: 600,
-              alt: 'Og Image Alt 2',
-            },
+            }
           ],
         }}
       />
@@ -191,13 +200,13 @@ export default function Home() {
         <link rel="shortcut icon" href="logo2.ico" type="image/x-icon" />
       </Head> */}
 
-      <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 4 }, display: { delay: 6 }, duration: 9 }}>
+      <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 3 }, display: { delay: 5 }, duration: 9 }}>
         <Loading />
       </motion.div>
       <main className="container">
         <Hero />
 
-        <div className="section section-large">
+        <div className="section section-large" style={{paddingTop: 0}}>
 
           <div className="about flex flex-between gap-md">
             <div className="sticky-texts">
@@ -208,21 +217,21 @@ export default function Home() {
 
             </div>
 
-            <ul className="lang-cards flex flex-column" style={{ gap: "60px" }}>
+            <ul className="lang-cards flex flex-column">
 
               {
-                cardLangs.map((card) => {
+                cardLangs.map((card, count) => {
                   return (
-                    <li key={card.id} className="card-lang gap-md">
+                    <motion.li  key={card.id} className="card-lang gap-md" initial={{ opacity: 0, y: 150 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.1, delay: count * .05 }} viewport={{ once: true }} >
                       <div>
                         <motion.img src={card.img} loading="lazy" alt="" />
                       </div>
 
-                      <div>
+                      {/* <div>
                         <h3>{card.name}</h3>
-                      </div>
+                      </div> */}
 
-                    </li>
+                    </motion.li>
                   )
                 })
               }

@@ -131,3 +131,23 @@ a {
     }
 }
 
+svg .logo-elem-1 {
+    /* stroke-dashoffset: 18773.291015625px; */
+    /* stroke-dasharray: 18773.291015625px; */
+    /* fill: transparent; */
+    -webkit-transition: stroke-dashoffset 7s ease 0s,
+        fill 0.8s ease-in-out .9s;
+    transition: stroke-dashoffset 7s ease 0s,
+        fill 0.8s ease-in-out .9s;
+}
+
+svg .logo-elem-2 {
+    /* stroke-dashoffset: 18773.291015625px; */
+    /* stroke-dasharray: 18773.291015625px; */
+    /* fill: transparent; */
+    -webkit-transition: stroke-dashoffset .6s ease 0s,
+        fill 0.8s ease-in-out .9s;
+    transition: stroke-dashoffset .6s ease 0s,
+        fill 0.8s ease-in-out .9s;
+}
+

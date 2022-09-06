@@ -1,13 +1,17 @@
 {
   "home": "Home",
   "hero": {
-    "top": "Oi, eu sou",
+    "top": "Hi, I am",
     "middle": "Deusdedit Vilar",
     "bottom": "Full-Stack Dev"
   },
   "about": {
     "title": "A little about myself",
-    "desc": "Olá! Eu sou um desenvolvedor de pilha cheia focado no desenvolvimento de Django com Python. Atualmente tenho experiência com Reagir e Reagir Native, e estou procurando expandir minha experiência com Typescript também. Estou sempre pronto para novos desafios e responsabilidades, portanto, se você estiver interessado em me contratar para seu próximo projeto, por favor, não hesite em me contatar! Atualmente, sou freelancer, mas se você tiver uma oportunidade para mim em sua empresa, não hesite em me estender a mão!"
+    "desc": {
+      "first": "I'm a full-stack developer focused on Django development with Python. I am currently increasing my experiences in React and React Native with Typescript. I am always up to new challenges and responsibilities. I'm currently a freelancer, but I'm looking for opportunities to work in my field at a company.",
+      "second": "With a degree in Computer Science, I have been developing for over 3 years. In this time I worked with many different technologies from C to Java and even with Go. However, Python has always been my favorite language because of its simplicity and readability. It allows me to focus on the problem at hand rather than getting lost in the syntax details like other languages ​​can sometimes do.",
+      "third": "Sou bacharel em Ciência da Computação e estou sempre pronto para novos desafios e responsabilidades, portanto, se você estiver interessado em me contratar para seu próximo projeto, por favor, não hesite em me contactar!"
+    }
   },
   "projects": {
     "title": "Some of my works",

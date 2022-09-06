@@ -3,61 +3,83 @@ $max_width: 1200px;
 $min_font: 16px;
 $max_font: 24px;
 
-h1 {
-    @include fluid-type($min_width, $max_width, $min_font, $max_font);
-}
-
-.hero-title {
-    // font-size: 4.3rem;
-    @include fluid-type($min_width, $max_width, 30px, 75px);
-    text-transform: uppercase;
-    position: relative;
-}
-
 .banner {
     z-index: 33;
     position: relative;
+
+    &_inner {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        justify-content: center;
+
+        .row-title {
+            white-space: nowrap;
+            
+            .row-letters {
+                overflow: hidden;
+                display: inline-block;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            padding-bottom: 10vh;
+        }
+    }
+    
+
+    h1 {
+        @include fluid-type($min_width, $max_width, $min_font, $max_font);
+        line-height: 1.15;
+    }
+
+    .hero-title {
+        // font-size: 4.3rem;
+        @include fluid-type($min_width, $max_width, 45px, 75px);
+        text-transform: uppercase;
+        position: relative;
+    }
 }
 
-.banner .banner-row {
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-}
 
-.row-title {
-    white-space: nowrap;
-}
-
-.row-letters {
-    overflow: hidden;
-    display: inline-block;
-}
 
 .about {
     .sticky-texts {
-        position: sticky;
+        // position: sticky;
         /* top: 180px; */
         top: 143px;
         height: 100%;
-        max-width: 55%;
+        max-width: 50%;
     }
 
     .lang-cards {
+        gap: 22px;
+        max-width: 50%;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
         .card-lang {
             /* border: 1px solid var(--color-secondary); */
-            position: -webkit-sticky;
-            position: sticky;
-            margin: 30px 0;
+            // position: -webkit-sticky;
+            // position: sticky;
+            /* margin: 30px 0; */
             top: 180px;
             padding: 20px;
-            background-color: rgb(18 32 50 / 90%);
+            background-color: rgba(18, 32, 50, 0.9);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            -webkit-backdrop-filter: blur(18px);
             backdrop-filter: blur(18px);
             border-radius: 9px;
-            gap: 35px;
+            /* gap: 35px; */
+            align-self: center;
+            place-content: center;
+            transition: all .5s ease;
+
+            &:hover {
+                transform: scale(1.15)!important;
+            }
 
             img {
                 width: 79px;
@@ -74,17 +96,19 @@ h1 {
 
         .sticky-texts {
             max-width: 100%;
+            top: 0;
+            position: relative;
         }
 
         .lang-cards {
             background-color: rgba(var(--bg-primary-rgb), 1);
             z-index: 7;
+            max-width: 100%;
         }
     }
 }
 
 #home_projects {
-
     .see_more {
         margin-top: 50px;
         text-align: center;

@@ -47,14 +47,14 @@ export const Hero = () => {
     return (
         <motion.div
             ref={ref}
-            className="banner section"
+            className="banner"
             initial="hidden"
             animate={controls}
             viewport={{ once: true }}
             variants={container}
         >
 
-            <div >
+            <div className="banner_inner">
                 {placeholderText.map((item, index) => {
                     return <AnimatedLetters className={item.class} {...item} key={index} />;
                 })}
