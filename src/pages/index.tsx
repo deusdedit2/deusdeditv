@@ -169,16 +169,16 @@ export default function Home() {
           type: 'website',
           url: 'https://deusdeditv.vercel.app',
           title: 'Deusdedit Vilar | Full-Stack Dev',
-          description: 'Description',
+          description: "Deusdedit Vilar's Full-Stack dev portfolio.",
           images: [
             {
-              url: 'https://deusdeditv.vercel.app/src_image.png',
-              width: 800,
-              height: 600,
+              url: 'https://deusdeditv.vercel.app/src_1200.png',
+              width: 1200,
+              height: 630,
               alt: 'Og Image Alt',
             },
             {
-              url: 'https://deusdeditv.vercel.app/src_image.png',
+              url: 'https://deusdeditv.vercel.app/src_800.png',
               width: 800,
               height: 600,
               alt: 'Og Image Alt 2',
@@ -191,9 +191,9 @@ export default function Home() {
         <link rel="shortcut icon" href="logo2.ico" type="image/x-icon" />
       </Head> */}
 
-      {/* <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 4 }, display: { delay: 6 }, duration: 9 }}>
+      <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 4 }, display: { delay: 6 }, duration: 9 }}>
         <Loading />
-      </motion.div> */}
+      </motion.div>
       <main className="container">
         <Hero />
 
