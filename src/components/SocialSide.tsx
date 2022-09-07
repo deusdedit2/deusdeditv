@@ -3,7 +3,7 @@ import { motion } from "framer-motion"
 export function SocialSide() {
 
     return (
-        <div orientation="left" className="social-side">
+        <div aria-orientation="vertical" className="social-side">
             <ul>
 
                 <motion.li>
