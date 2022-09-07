@@ -18,12 +18,6 @@ export function AnimatedLetters({ text, className }: LettersProps) {
         }
     };
 
-    const container = {
-        hover: {
-            color: "var(--color-secondary)",
-        }
-    };
-
     const splitWords = text.split(" ");
 
     const words: any[] = [];
@@ -43,7 +37,8 @@ export function AnimatedLetters({ text, className }: LettersProps) {
                     <motion.span className="row-title" key={index}>
                         {words[index].flat().map((element: string, index: number) => {
                             return (
-                                <motion.span whileHover="hover" variants={container}
+                                <motion.span
+                                    whileHover={{ color: "var(--color-secondary)" }}
                                     className="row-letters"
                                     key={index}
                                 >
