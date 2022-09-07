@@ -101,7 +101,7 @@ export default function Header() {
 
                 <div className="dropdown-container">
                     <input className="dropdown" type="checkbox" id="dropdown" name="dropdown" />
-                    <label className="for-dropdown" htmlFor="dropdown">{router.locale === 'en' ? 'English' : 'Portuguese'} <i className="uil uil-arrow-down"></i></label>
+                    <label className="for-dropdown" htmlFor="dropdown">{router.locale === 'en' ? 'English 🇺🇸' : 'Portuguese 🇧🇷'} <i className="uil uil-arrow-down"></i></label>
                     <div className="section-dropdown">
                         {langs.map((lang) => {
                             return (

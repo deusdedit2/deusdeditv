@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { motion, MotionProps, useMotionValue } from "framer-motion"
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { CardFooter, FooterProps } from "./CardFooter";
 import { ContentContainer } from "./ContentContainer";
 import { ImageContainer } from "./ImageContainer";
@@ -32,6 +32,17 @@ export function Card({ title, description, options, id, siteUrl, ghUrl, ...rest 
     const selectHandler = () => {
         setIsExpanded(!isExpanded)
     }
+
+    useEffect(() => {
+        function handleEscapeKey(event: KeyboardEvent) {
+            if (event.code === 'Escape') {
+              setIsExpanded(false)
+            }
+          }
+        
+          document.addEventListener('keydown', handleEscapeKey)
+          return () => document.removeEventListener('keydown', handleEscapeKey)
+    },[])
 
     return (
         <>

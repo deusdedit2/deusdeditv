@@ -45,7 +45,7 @@ export const Hero = () => {
     }, [controls, isInView])
 
     return (
-        <motion.div
+        <motion.section
             ref={ref}
             className="banner"
             initial="hidden"
@@ -54,11 +54,11 @@ export const Hero = () => {
             variants={container}
         >
 
-            <div className="banner_inner">
+            <motion.div className="banner_inner">
                 {placeholderText.map((item, index) => {
                     return <AnimatedLetters className={item.class} {...item} key={index} />;
                 })}
-            </div>
-        </motion.div>
-    );
+            </motion.div>
+        </motion.section>
+    )
 };

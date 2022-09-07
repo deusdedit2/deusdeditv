@@ -1,65 +1,11 @@
 import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { useTranslation } from "next-i18next";
-import { motion, LayoutGroup } from "framer-motion";
-import { Hero } from "../components/Hero";
-import { Card } from "../components/Card";
-import { Loading } from "../components/Loading";
-import Link from "next/link";
 import { NextSeo } from "next-seo";
-import { SocialSide } from "../components/SocialSide";
+import { LayoutGroup, motion } from "framer-motion";
+import { Card } from "../components/Card";
 
-const cardLangs = [
-  {
-    "id": "py",
-    "name": "Python",
-    "img": "https://media.graphassets.com/j7nUTJtDThOdKIlVR1jv",
-  },
-  {
-    "id": "dj",
-    "name": "Django",
-    "img": "https://media.graphassets.com/XoyRduWnTq6vzAThXfcG"
-  },
-  {
-    "id": "ts",
-    "name": "Typescript",
-    "img": "https://media.graphassets.com/Rza595n2Rc6ZMKuF2V0q"
-  },
-  {
-    "id": "rjs",
-    "name": "React",
-    "img": "https://media.graphassets.com/wVqBSeHRNOrqvBRg41fw"
-  },
-  {
-    "id": "rn",
-    "name": "React Native",
-    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
-  },
-  {
-    "id": "rn",
-    "name": "React Native",
-    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
-  },
-  {
-    "id": "rn",
-    "name": "React Native",
-    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
-  },
-  {
-    "id": "rn",
-    "name": "React Native",
-    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
-  },
-  {
-    "id": "rn",
-    "name": "React Native",
-    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
-  },
-]
-
-export default function Home() {
+export default function Projects() {
   const { locale } = useRouter();
-  const { t } = useTranslation("home");
 
   const data = {
     "projects": [
@@ -165,59 +111,11 @@ export default function Home() {
     ]
   }
 
-  const divAnim = {
-    visible: { opacity: 1, display: "flex" },
-    hidden: { opacity: 0, display: "none" },
-  }
-
   return (
     <>
-      <NextSeo title="Home"/>
-
-      {/* <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 3 }, display: { delay: 5 }, duration: 9 }}>
-        <Loading />
-      </motion.div> */}
-
-    
-      <main className="container">
-        <Hero />
-
-        <section className="section section-large" style={{ paddingTop: 0 }}>
-
-          <div className="about flex flex-between gap-md">
-            <div className="sticky-texts">
-              <h2>{t('about.title')}</h2>
-              <p style={{ textAlign: "justify", marginTop: "20px" }}>{t('about.desc.first')}</p>
-              <p style={{ textAlign: "justify", marginTop: "20px" }}>{t('about.desc.second')}</p>
-              {/* <p style={{textAlign: "justify", marginTop: "20px"}}>{t('about.desc.third')}</p> */}
-
-            </div>
-
-            <ul className="lang-cards flex flex-column">
-
-              {
-                cardLangs.map((card, count) => {
-                  return (
-                    <motion.li key={card.id} className="card-lang gap-md" initial={{ opacity: 0, y: 150 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.1, delay: count * .05 }} viewport={{ once: true }} >
-                      <div>
-                        <motion.img src={card.img} loading="lazy" alt="" />
-                      </div>
-                    </motion.li>
-                  )
-                })
-              }
-
-            </ul>
-
-          </div>
-
-        </section>
-
-        <section className="section" id="home_projects">
-          <h2>{t('projects.title')}</h2>
-          {/* <div>
-                        <motion.hr style={{ border: "none", borderBottom: "1px solid #fff" }} initial={{ rotateY: 90 }} whileInView={{ rotateY: 0 }} transition={{ duration: 1 }} />
-                    </div> */}
+      <NextSeo noindex={true} title={"Projects"} />
+      <main>
+        <div className="container section section-large">
 
           <motion.ul
             style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: "30px", marginTop: "50px" }}>
@@ -236,41 +134,16 @@ export default function Home() {
             }
 
           </motion.ul>
-
-          <div className="see_more">
-            <p>{t('projects.likeit')}</p>
-            <Link href={"/projects"}>
-              <a >{t('projects.seemore')}</a>
-            </Link>
-          </div>
-
-        </section>
-
+        </div>
       </main>
-
-      {/* <footer className="container section">
-        <div>
-          <h3>Deusdedit vilar</h3>
-        </div>
-        <div className="flex">
-            <a href="">Home</a>
-            <a href="">Projetos</a>
-        </div>
-
-        <div className="flex">
-            <a href="">Home</a>
-            <a href="">Projetos</a>
-        </div>
-      </footer> */}
     </>
-  );
+  )
 }
 
 export async function getStaticProps({ locale }: any) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home"])),
-      // Will be passed to the page component as props
+      ...(await serverSideTranslations(locale)),
     },
   };
 }

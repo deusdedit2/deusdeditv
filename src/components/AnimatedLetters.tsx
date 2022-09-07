@@ -18,6 +18,12 @@ export function AnimatedLetters({ text, className }: LettersProps) {
         }
     };
 
+    const container = {
+        hover: {
+            color: "var(--color-secondary)",
+        }
+    };
+
     const splitWords = text.split(" ");
 
     const words: any[] = [];
@@ -34,10 +40,10 @@ export function AnimatedLetters({ text, className }: LettersProps) {
         <h1 className={className}>
             {words.map((word, index) => {
                 return (
-                    <span className="row-title" key={index}>
+                    <motion.span className="row-title" key={index}>
                         {words[index].flat().map((element: string, index: number) => {
                             return (
-                                <span
+                                <motion.span whileHover="hover" variants={container}
                                     className="row-letters"
                                     key={index}
                                 >
@@ -48,10 +54,10 @@ export function AnimatedLetters({ text, className }: LettersProps) {
                                     >
                                         {element}
                                     </motion.span>
-                                </span>
+                                </motion.span>
                             );
                         })}
-                    </span>
+                    </motion.span>
                 );
             })}
         </h1>
