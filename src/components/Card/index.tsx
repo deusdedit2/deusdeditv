@@ -47,7 +47,7 @@ export function Card({ title, description, options, id, siteUrl, ghUrl, ...rest 
     return (
         <>
             <motion.div {...rest} layout>
-                <li className={`card`}>
+                <div className={`card`}>
                     <div className={classNames('card-content-container', { "open": isExpanded })} onClick={selectHandler}>
                         <motion.div
                             className="card-content"
@@ -64,7 +64,7 @@ export function Card({ title, description, options, id, siteUrl, ghUrl, ...rest 
 
                         </motion.div>
                     </div>
-                </li>
+                </div>
             </motion.div>
             <Overlay isExpanded={isExpanded} onClick={selectHandler} />
         </>

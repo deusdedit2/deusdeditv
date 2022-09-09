@@ -8,6 +8,7 @@ import { Loading } from "../components/Loading";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
 import { SocialSide } from "../components/SocialSide";
+import Logo from "../components/Logo";
 
 const cardLangs = [
   {
@@ -172,13 +173,13 @@ export default function Home() {
 
   return (
     <>
-      <NextSeo title="Home"/>
+      <NextSeo title="Home" />
 
-      <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 3 }, display: { delay: 5 }, duration: 9 }}>
+      {/* <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 3 }, display: { delay: 5 }, duration: 9 }}>
         <Loading />
-      </motion.div>
+      </motion.div> */}
 
-    
+
       <main className="container">
         <Hero />
 
@@ -187,13 +188,13 @@ export default function Home() {
           <div className="about flex flex-between gap-md">
             <div className="sticky-texts">
               <h2>{t('about.title')}</h2>
-              <p style={{ textAlign: "justify", marginTop: "20px" }}>{t('about.desc.first')}</p>
-              <p style={{ textAlign: "justify", marginTop: "20px" }}>{t('about.desc.second')}</p>
+              <p>{t('about.desc.first')}</p>
+              <p>{t('about.desc.second')}</p>
               {/* <p style={{textAlign: "justify", marginTop: "20px"}}>{t('about.desc.third')}</p> */}
 
             </div>
 
-            <ul className="lang-cards flex flex-column">
+            <ul className="lang-cards flex">
 
               {
                 cardLangs.map((card, count) => {
@@ -228,9 +229,11 @@ export default function Home() {
 
               data?.projects.map((project, count) => {
                 return (
-                  <LayoutGroup key={count} id={`card-${count}`}>
-                    <Card id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layout="position" layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
-                  </LayoutGroup>
+                  <li key={count}>
+                    <LayoutGroup id={`card-${count}`}>
+                      <Card id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layout="position" layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
+                    </LayoutGroup>
+                  </li>
                 )
               })
             }
@@ -248,20 +251,21 @@ export default function Home() {
 
       </main>
 
-      {/* <footer className="container section">
-        <div>
-          <h3>Deusdedit vilar</h3>
+      <footer style={{
+        background: 'rgb(11 23 38 / 100%)',
+        zIndex: 11,
+        position: "relative"
+      }}>
+        <div className="container section section-small" style={{ display: "flex", justifyContent: "space-between", padding: '10px 0' }}>
+          <div style={{width: "56px",height: "61px"}}>
+            <Logo />
+          </div>
+          <div className="flex" style={{ textAlign: 'center', justifyContent: 'center', margin: '20px 0' }}>
+            <a href="" style={{ textAlign: 'center', margin: '0 10px', color: '#888', textTransform: 'uppercase' }}>Home</a>
+            <a href="" style={{ textAlign: 'center', margin: '0 10px', color: '#888', textTransform: 'uppercase' }}>Projetos</a>
+          </div>
         </div>
-        <div className="flex">
-            <a href="">Home</a>
-            <a href="">Projetos</a>
-        </div>
-
-        <div className="flex">
-            <a href="">Home</a>
-            <a href="">Projetos</a>
-        </div>
-      </footer> */}
+      </footer>
     </>
   );
 }
