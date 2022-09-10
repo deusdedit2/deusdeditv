@@ -175,9 +175,9 @@ export default function Home() {
     <>
       <NextSeo title="Home" />
 
-      {/* <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 3 }, display: { delay: 5 }, duration: 9 }}>
+      <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 3 }, display: { delay: 5 }, duration: 9 }}>
         <Loading />
-      </motion.div> */}
+      </motion.div>
 
 
       <main className="container">
@@ -251,21 +251,6 @@ export default function Home() {
 
       </main>
 
-      <footer style={{
-        background: 'rgb(11 23 38 / 100%)',
-        zIndex: 11,
-        position: "relative"
-      }}>
-        <div className="container section section-small" style={{ display: "flex", justifyContent: "space-between", padding: '10px 0' }}>
-          <div style={{width: "56px",height: "61px"}}>
-            <Logo />
-          </div>
-          <div className="flex" style={{ textAlign: 'center', justifyContent: 'center', margin: '20px 0' }}>
-            <a href="" style={{ textAlign: 'center', margin: '0 10px', color: '#888', textTransform: 'uppercase' }}>Home</a>
-            <a href="" style={{ textAlign: 'center', margin: '0 10px', color: '#888', textTransform: 'uppercase' }}>Projetos</a>
-          </div>
-        </div>
-      </footer>
     </>
   );
 }

@@ -4,10 +4,11 @@ import { NextSeo } from "next-seo";
 import { LayoutGroup, motion } from "framer-motion";
 import { Card } from "../components/Card";
 import { useState } from "react";
+import classNames from "classnames";
 
 export default function Projects() {
   const { locale } = useRouter();
-  const [filter, setFilter] = useState('')
+  const [filter, setFilter] = useState('all')
 
   const data = {
     "projects": [
@@ -22,21 +23,21 @@ export default function Projects() {
         },
         "langs": [
           {
-            "id": "cl6wgfkaaj7ss0biz8dhpm1w0",
+            "id": "dj",
             "name": "Django",
             "langUrl": {
               "url": "https://media.graphassets.com/DR7njt1tSkeTHrZZT4er"
             }
           },
           {
-            "id": "cl6wgk1bfhc0u0ck38l2oukzb",
+            "id": "hcj",
             "name": "HTML+CSS+JS",
             "langUrl": {
               "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
             }
           },
           {
-            "id": "cl78bu48ed7650dim30cgs89i",
+            "id": "pg",
             "name": "Postgresql",
             "langUrl": {
               "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
@@ -55,21 +56,21 @@ export default function Projects() {
         },
         "langs": [
           {
-            "id": "cl6wgfkaaj7ss0biz8dhpm1w0",
+            "id": "dj",
             "name": "Django",
             "langUrl": {
               "url": "https://media.graphassets.com/DR7njt1tSkeTHrZZT4er"
             }
           },
           {
-            "id": "cl6wgk1bfhc0u0ck38l2oukzb",
+            "id": "hcj",
             "name": "HTML+CSS+JS",
             "langUrl": {
               "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
             }
           },
           {
-            "id": "cl78bu48ed7650dim30cgs89i",
+            "id": "pg",
             "name": "Postgresql",
             "langUrl": {
               "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
@@ -95,14 +96,14 @@ export default function Projects() {
           //   }
           // },
           {
-            "id": "cl6wgk1bfhc0u0ck38l2oukzb",
+            "id": "hcj",
             "name": "HTML+CSS+JS",
             "langUrl": {
               "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
             }
           },
           {
-            "id": "cl78bu48ed7650dim30cgs89i",
+            "id": "pg",
             "name": "Postgresql",
             "langUrl": {
               "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
@@ -128,14 +129,14 @@ export default function Projects() {
           //   }
           // },
           {
-            "id": "cl6wgk1bfhc0u0ck38l2oukzb",
+            "id": "hcj",
             "name": "HTML+CSS+JS",
             "langUrl": {
               "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
             }
           },
           {
-            "id": "cl78bu48ed7650dim30cgs89i",
+            "id": "pg",
             "name": "Postgresql",
             "langUrl": {
               "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
@@ -161,14 +162,14 @@ export default function Projects() {
           //   }
           // },
           {
-            "id": "cl6wgk1bfhc0u0ck38l2oukzb",
+            "id": "hcj",
             "name": "HTML+CSS+JS",
             "langUrl": {
               "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
             }
           },
           {
-            "id": "cl78bu48ed7650dim30cgs89i",
+            "id": "pg",
             "name": "Postgresql",
             "langUrl": {
               "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
@@ -194,14 +195,14 @@ export default function Projects() {
           //   }
           // },
           {
-            "id": "cl6wgk1bfhc0u0ck38l2oukzb",
+            "id": "hcj",
             "name": "HTML+CSS+JS",
             "langUrl": {
               "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
             }
           },
           {
-            "id": "cl78bu48ed7650dim30cgs89i",
+            "id": "pg",
             "name": "Postgresql",
             "langUrl": {
               "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
@@ -227,14 +228,14 @@ export default function Projects() {
           //   }
           // },
           {
-            "id": "cl6wgk1bfhc0u0ck38l2oukzb",
+            "id": "hcj",
             "name": "HTML+CSS+JS",
             "langUrl": {
               "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
             }
           },
           {
-            "id": "cl78bu48ed7650dim30cgs89i",
+            "id": "pg",
             "name": "Postgresql",
             "langUrl": {
               "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
@@ -251,7 +252,7 @@ export default function Projects() {
       name: "Todos"
     },
     {
-      id: "Django",
+      id: "dj",
       name: "Django"
     },
     {
@@ -269,9 +270,8 @@ export default function Projects() {
   ]
 
   const filteredProjs = filter != 'all' ?
-    data.projects.filter(item => { return item.langs.find(tag => { if (tag.name === filter) { return true } }); })
+    data.projects.filter(item => { return item.langs.find(tag => { if (tag.id === filter) { return true } }); })
     : null
-  // console.log(filteredProjs)
 
   return (
     <>
@@ -280,11 +280,17 @@ export default function Projects() {
         <div className="container section section-large">
 
           <div className="lang-filter">
-            <ul className="flex">
+            <ul className="flex flex-wrap">
               {
                 filterLangs.map((lang) => {
                   return (
-                    <li onClick={e => setFilter(lang.name)} style={{ margin: "0 10px" }} key={lang.id}>{lang.name}</li>
+                    <li key={lang.id}>
+                      <button onClick={e => setFilter(lang.id)} className={classNames({
+                        'active': filter === lang.id,
+                      })}>
+                        {lang.name}
+                      </button>
+                    </li>
                   )
                 })
               }
@@ -308,30 +314,30 @@ export default function Projects() {
             } */}
 
             {
-              filter === 'Todos' ?
-              
-              data?.projects.map((project, count) => {
-                return (
-                  <LayoutGroup key={count} id={`card-${count}`}>
-                    <Card id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layout="position" layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} whileInView={{ opacity: 1, y: 0 }} exit={{opacity: 0, y: 150 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
-                  </LayoutGroup>
-                )
-              })
+              filter === 'all' ?
 
-              :
-
-              filteredProjs ? 
-                filteredProjs.map((project, count) => {
+                data?.projects.map((project, count) => {
                   return (
                     <LayoutGroup key={count} id={`card-${count}`}>
-                      <Card id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layout="position" layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} whileInView={{ opacity: 1, y: 0 }} exit={{opacity: 0, y: 150 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
+                      <Card id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layout="position" layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 150 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
                     </LayoutGroup>
                   )
                 })
 
                 :
 
-                <p>Não tem nada aqui</p>
+                filteredProjs ?
+                  filteredProjs.map((project, count) => {
+                    return (
+                      <LayoutGroup key={count} id={`card-${count}`}>
+                        <Card id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layout="position" layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 150 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
+                      </LayoutGroup>
+                    )
+                  })
+
+                  :
+
+                  <p>Não tem nada aqui</p>
 
             }
 

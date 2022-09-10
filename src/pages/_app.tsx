@@ -9,6 +9,7 @@ import { AnimatePresence } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { DefaultSeo, NextSeo } from 'next-seo';
 import { SocialSide } from '../components/SocialSide';
+import Footer from '../components/Footer';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
@@ -43,11 +44,12 @@ function MyApp({ Component, pageProps }: AppProps) {
           ],
         }}
       />
+      <Header />
       <AnimatePresence>
-        <Header />
         <SocialSide key={router.locale} />
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
+      <Footer />
     </>
   )
 }
