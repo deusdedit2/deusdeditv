@@ -37,24 +37,24 @@ const cardLangs = [
     "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
   },
   {
-    "id": "rn",
-    "name": "React Native",
-    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
+    "id": "ex",
+    "name": "Expo",
+    "img": "https://media.graphassets.com/X6W1F8AQxWXEMFnX7Lr9"
   },
   {
-    "id": "rn",
-    "name": "React Native",
-    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
+    "id": "sass",
+    "name": "Sass",
+    "img": "https://media.graphassets.com/3cANQENsTC6QIbiN8kD1"
   },
   {
-    "id": "rn",
-    "name": "React Native",
-    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
+    "id": "pg",
+    "name": "Postgresql",
+    "img": "https://media.graphassets.com/hQb3EujNRHq7rdtgycmC"
   },
   {
-    "id": "rn",
-    "name": "React Native",
-    "img": "https://media.graphassets.com/OpNcflykQKqORJHFlqMX"
+    "id": "gql",
+    "name": "GraphQL",
+    "img": "https://media.graphassets.com/amF5g6yOQCqNcGyn2d2m"
   },
 ]
 
@@ -175,9 +175,9 @@ export default function Home() {
     <>
       <NextSeo title="Home" />
 
-      <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 3 }, display: { delay: 5 }, duration: 9 }}>
+      {/* <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 3 }, display: { delay: 5 }, duration: 9 }}>
         <Loading />
-      </motion.div>
+      </motion.div> */}
 
 
       <main className="container">
@@ -231,7 +231,7 @@ export default function Home() {
                 return (
                   <li key={count}>
                     <LayoutGroup id={`card-${count}`}>
-                      <Card id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layout="position" layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
+                      <Card imageUrl={project.image.url} id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layout="position" layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
                     </LayoutGroup>
                   </li>
                 )

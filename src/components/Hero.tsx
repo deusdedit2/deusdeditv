@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { motion, useAnimationControls, useInView } from "framer-motion";
 import { AnimatedLetters } from "./AnimatedLetters";
 import { useTranslation } from "react-i18next";

@@ -12,12 +12,13 @@ export interface cardProps extends MotionProps, FooterProps {
     id: string;
     title: string;
     description: string;
+    imageUrl: string;
 }
 
 export const openSpring = { type: "spring", stiffness: 200, damping: 30 };
 export const closeSpring = { type: "spring", stiffness: 300, damping: 35 };
 
-export function Card({ title, description, options, id, siteUrl, ghUrl, ...rest }: cardProps) {
+export function Card({ title, description, imageUrl, options, id, siteUrl, ghUrl, ...rest }: cardProps) {
     const [isExpanded, setIsExpanded] = useState(false);
     const zIndex = useMotionValue(isExpanded ? 2 : 0);
 
@@ -30,7 +31,7 @@ export function Card({ title, description, options, id, siteUrl, ghUrl, ...rest 
     }
 
     const selectHandler = () => {
-        setIsExpanded(!isExpanded)
+        !isExpanded && setIsExpanded(!isExpanded)
     }
 
     useEffect(() => {
@@ -55,7 +56,7 @@ export function Card({ title, description, options, id, siteUrl, ghUrl, ...rest 
                             layout={true}
                             onUpdate={checkZIndex}
                         >
-                            <ImageContainer src="https://media.graphassets.com/HE1ToT38RjQL3EKv9w1r" />
+                            <ImageContainer src={imageUrl} />
 
                             <TitleContainer isExpanded={isExpanded} title={title} />
                             <ContentContainer description={description} />
@@ -66,7 +67,7 @@ export function Card({ title, description, options, id, siteUrl, ghUrl, ...rest 
                     </div>
                 </div>
             </motion.div>
-            <Overlay isExpanded={isExpanded} onClick={selectHandler} />
+            <Overlay isExpanded={isExpanded} onClick={() => setIsExpanded(false)} />
         </>
     )
 }

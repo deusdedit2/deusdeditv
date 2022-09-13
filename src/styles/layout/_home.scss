@@ -135,11 +135,15 @@ $max_font: 24px;
         }
 
         a {
-            // margin: 25px;
             color: #fff;
             border: 1px solid var(--color-secondary);
             border-radius: 10px;
-            padding: 12px;
+            padding: 12px 40px;
+            transition: background .5s ease;
+
+            &:hover {
+                background: var(--color-secondary);
+            }
         }
     }
 }

@@ -1,16 +1,11 @@
-import React, { HTMLAttributes } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 import { motion } from "framer-motion"
-
 import classNames from "classnames";
-import { useEffect, useState } from "react"
-// import Logo from "./Logo";
-// import i18n from '../i18n'
-import { t } from "i18next";
+
 import Logo from "./Logo";
-// import { useTranslation } from "react-i18next";
 
 const langs = [
     { code: 'en', nativeName: 'English 🇺🇸', flag: '&#127463;&#127479;' },

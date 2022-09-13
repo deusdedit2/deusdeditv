@@ -16,7 +16,7 @@ export const ImageContainer = ({ src, alt }: ImageProps) => {
             width={300}
             height={300}
             layout
-            src={"https://media.graphassets.com/HE1ToT38RjQL3EKv9w1r"}
+            src={src}
             initial={false}
             transition={closeSpring}
             loading="lazy"

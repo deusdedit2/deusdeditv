@@ -54,7 +54,7 @@
             max-width: 700px;
             overflow: hidden;
             position: fixed;
-            top: calc(50% - 100vh / 3);
+            top: calc(50% - 100vh / 2.5);
             left: 0;
             right: 0;
             margin: auto;
@@ -62,9 +62,9 @@
             cursor: auto;
         }
 
-        .card-image-container {
-            height: auto;
-        }
+        // .card-image-container {
+        //     height: auto;
+        // }
 
         img.card-image {
             max-width: 100%;
@@ -89,6 +89,10 @@
                 margin: auto 15px;
                 bottom: 0;
                 border-radius: 15px 15px 0 0;
+            }
+
+            .card-image-container {
+                height: auto;
             }
         }
     }

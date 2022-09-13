@@ -13,7 +13,7 @@ export function SocialSide() {
                 </motion.li>
 
                 <motion.li>
-                    <a href="https://instagram.com/deusdeditvilar" target="_blank" rel="noreferrer">
+                    <a href="https://www.linkedin.com/in/deusdedit-vilar-guedes-neto-309856182/" target="_blank" rel="noreferrer">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 5 1036 990"
@@ -25,7 +25,7 @@ export function SocialSide() {
                 </motion.li>
 
                 <motion.li>
-                    <a href="https://github.com/deusdeditvilar" target="_blank" rel="noreferrer">
+                    <a href="https://instagram.com/deusdeditvilar" target="_blank" rel="noreferrer">
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 2476 2476"
