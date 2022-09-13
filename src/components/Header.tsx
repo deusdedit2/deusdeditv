@@ -8,8 +8,8 @@ import classNames from "classnames";
 import Logo from "./Logo";
 
 const langs = [
-    { code: 'en', nativeName: 'English 🇺🇸', flag: '&#127463;&#127479;' },
     { code: 'pt_BR', nativeName: `Portuguese 🇧🇷`, flag: '&#127463;&#127479;' },
+    { code: 'en', nativeName: 'English 🇺🇸', flag: '&#127463;&#127479;' },
 ];
 
 export default function Header() {
@@ -39,8 +39,8 @@ export default function Header() {
             <div className="container flex flex-align-center flex-between header_container">
 
                 <Link href="/" >
-                    <a style={{ width: "55px", height: "58px" }}>
-                        <Logo style={{ width: "55px", height: "58px" }}/>
+                    <a style={{ width: "55px", height: "58px" }} className="flex">
+                        <Logo />
                     </a>
                 </Link>
 

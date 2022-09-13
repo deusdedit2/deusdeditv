@@ -212,7 +212,7 @@ export default function Home({projects}: GetProjectsQueryResponse) {
         <section className="section section-large" style={{ paddingTop: 0 }}>
 
           <div className="about flex flex-between gap-md">
-            <div className="sticky-texts">
+            <div className="sticky-texts flex flex-column flex-self-center">
               <h2>{t('about.title')}</h2>
               <p>{t('about.desc.first')}</p>
               <p>{t('about.desc.second')}</p>

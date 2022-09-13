@@ -17,11 +17,14 @@
         padding: 15px;
         backdrop-filter: blur(10px);
         background: transparent;
-        border-radius: 30px;
+        border-radius: 16px;
+        transition: border-top-color 0.2s linear 0s, border-right-color 0.2s linear 0.1s, border-bottom-color 0.2s linear 0.2s, border-left-color 0.2s linear 0.3s, background .5s ease-in-out;
+        border: 1px solid transparent;
     }
 
     &.scrolled &_container {
         background-color: rgb(18 32 50 / 90%);
+        border-color: rgba(255,255,255,.1);
     }
 }
 

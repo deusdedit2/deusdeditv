@@ -8,17 +8,17 @@ export const Hero = () => {
     const { t } = useTranslation("home");
     const placeholderText = [
         { 
-            type: "heading1",
+            as: "h1",
             text: t("hero.top"),
             class: "hero-top" 
         },
         { 
-            type: "heading1",
+            as: "h2",
             text: t("hero.middle"),
             class: "hero-title" 
         },
         {
-            type: "heading2",
+            as: "h3",
             text: t("hero.bottom"),
             class: "hero-bottom"
         }

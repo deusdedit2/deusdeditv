@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
+import { ElementType, FC } from "react";
 
 
 interface LettersProps {
     text: string;
     className?: string;
+    as?: ElementType | string;
 }
 
-export function AnimatedLetters({ text, className }: LettersProps) {
+export const AnimatedLetters: FC<LettersProps> = ({ text, className, as: Tag = "div" }) => {
     const item = {
         hidden: {
             y: "200%",
@@ -31,7 +33,7 @@ export function AnimatedLetters({ text, className }: LettersProps) {
     });
 
     return (
-        <h1 className={className}>
+        <Tag className={className}>
             {words.map((word, index) => {
                 return (
                     <motion.span className="row-title" key={index}>
@@ -55,6 +57,6 @@ export function AnimatedLetters({ text, className }: LettersProps) {
                     </motion.span>
                 );
             })}
-        </h1>
+        </Tag>
     );
 };
