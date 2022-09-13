@@ -1,7 +1,9 @@
+import { useTranslation } from "next-i18next";
 import Link from "next/link";
 import Logo from "./Logo";
 
 export default function Footer() {
+    const { t } = useTranslation("common");
 
     return (
         <footer style={{
@@ -15,7 +17,7 @@ export default function Footer() {
                 </div>
                 <div className="flex" style={{ textAlign: 'center', justifyContent: 'center', margin: '20px 0' }}>
                     <Link href={"/"} ><a style={{ textAlign: 'center', margin: '0 10px', color: '#888', textTransform: 'uppercase' }}>Home</a></Link>
-                    <Link href={"/projects"}><a style={{ textAlign: 'center', margin: '0 10px', color: '#888', textTransform: 'uppercase' }}>Projetos</a></Link>
+                    <Link href={"/projects"}><a style={{ textAlign: 'center', margin: '0 10px', color: '#888', textTransform: 'uppercase' }}>{t('projects')}</a></Link>
                 </div>
             </div>
         </footer>

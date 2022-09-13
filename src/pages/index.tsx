@@ -7,8 +7,8 @@ import { Card } from "../components/Card";
 import { Loading } from "../components/Loading";
 import Link from "next/link";
 import { NextSeo } from "next-seo";
-import { SocialSide } from "../components/SocialSide";
-import Logo from "../components/Logo";
+import { client } from "../lib/apollo";
+import { gql } from "@apollo/client";
 
 const cardLangs = [
   {
@@ -58,9 +58,35 @@ const cardLangs = [
   },
 ]
 
-export default function Home() {
-  const { locale } = useRouter();
+interface GetProjectsQueryResponse {
+  projects: {
+      id: string
+      title: string
+      siteUrl: string
+      githubUrl: string
+      description: string
+      image: {
+          url: string
+      }
+      langs: {
+          id: string;
+          name: string;
+          langUrl: {
+              url: string
+          }
+      }[]
+  }[]
+}
+
+type Params = {
+  locale: string
+}
+
+export default function Home({projects}: GetProjectsQueryResponse) {
+  // const { locale } = useRouter();
   const { t } = useTranslation("home");
+
+  console.log("RENDERIZOU")
 
   const data = {
     "projects": [
@@ -241,7 +267,7 @@ export default function Home() {
           </motion.ul>
 
           <div className="see_more">
-            <p>{t('projects.likeit')}</p>
+            {/* <p>{t('projects.likeit')}</p> */}
             <Link href={"/projects"}>
               <a >{t('projects.seemore')}</a>
             </Link>
@@ -255,11 +281,42 @@ export default function Home() {
   );
 }
 
-export async function getStaticProps({ locale }: any) {
+export async function getStaticProps({ locale }: Params) {
+
+  // const { data } = await client.query({
+  //   query: gql`
+  //   query MyQuery($locale: [Locale!]!) {
+  //     projects(stage: PUBLISHED, locales: $locale) {
+  //       id
+  //       title
+  //       siteUrl
+  //       githubUrl
+  //       description
+  //       image {
+  //         url
+  //       }
+  //       langs {
+  //         ... on LangTag {
+  //           id
+  //           name
+  //           abbreviation
+  //           langUrl {
+  //             url
+  //           }
+  //         }
+  //       }
+  //     }
+  //   }
+  //   `,
+  //   variables: {
+  //     locale: [locale]
+  //   }
+  // });
+
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home"])),
-      // Will be passed to the page component as props
+      ...(await serverSideTranslations(locale, ["home","common"])),
+      // projects: data
     },
   };
 }
