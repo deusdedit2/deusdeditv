@@ -86,8 +86,6 @@ export default function Home({projects}: GetProjectsQueryResponse) {
   // const { locale } = useRouter();
   const { t } = useTranslation("home");
 
-  console.log("RENDERIZOU")
-
   const data = {
     "projects": [
       {
@@ -227,7 +225,7 @@ export default function Home({projects}: GetProjectsQueryResponse) {
                   return (
                     <motion.li key={card.id} className="card-lang gap-md" initial={{ opacity: 0, y: 150 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.1, delay: count * .05 }} viewport={{ once: true }} >
                       <div>
-                        <motion.img src={card.img} loading="lazy" alt="" />
+                        <motion.img src={card.img} loading="lazy" alt={`${card.name} Logo`} />
                       </div>
                     </motion.li>
                   )

@@ -22,6 +22,7 @@
             left: 0;
             overflow: hidden;
             height: 420px;
+            transition: all .3s ease;
 
             .card-image {
                 width: 100%;
@@ -45,6 +46,31 @@
         .card-footer svg {
             width: inherit;
             height: inherit;
+        }
+    }
+
+    &:not(.open) .card-image-container:hover {
+        filter: blur(4px);
+    }
+
+    .plus {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+        pointer-events: none;
+        transition: all .5s ease;
+        cursor: pointer;
+        width: 3rem;
+        height: 3rem;
+    
+        &.open {
+            transform: none;
+            right: 15px;
+            left: auto;
+            pointer-events: all;
         }
     }
 

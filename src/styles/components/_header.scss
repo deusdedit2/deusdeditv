@@ -15,7 +15,6 @@
         transition: all 1s ease-in-out;
         position: relative;
         padding: 15px;
-        backdrop-filter: blur(10px);
         background: transparent;
         border-radius: 16px;
         transition: border-top-color 0.2s linear 0s, border-right-color 0.2s linear 0.1s, border-bottom-color 0.2s linear 0.2s, border-left-color 0.2s linear 0.3s, background .5s ease-in-out;
@@ -25,6 +24,7 @@
     &.scrolled &_container {
         background-color: rgb(18 32 50 / 90%);
         border-color: rgba(255,255,255,.1);
+        backdrop-filter: blur(10px);
     }
 }
 
@@ -46,10 +46,10 @@
             font-weight: 500;
             font-size: 15px;
             line-height: 2;
-            height: 50px;
+            height: 60px;
             transition: all 200ms linear;
             border-radius: 4px;
-            width: 170px;
+            width: 10rem;
             letter-spacing: 1px;
             display: -webkit-inline-flex;
             display: -ms-inline-flexbox;

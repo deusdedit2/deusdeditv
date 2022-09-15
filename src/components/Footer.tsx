@@ -11,8 +11,8 @@ export default function Footer() {
             zIndex: 11,
             position: "relative"
         }}>
-            <div className="container section section-small" style={{ display: "flex", justifyContent: "space-between", padding: '15px' }}>
-                <div style={{ width: "56px", height: "61px" }}>
+            <div className="container section section-small" style={{ display: "flex", justifyContent: "space-between", padding: '15px', boxSizing: "content-box" }}>
+                <div style={{ width: "56px", height: "60px" }} className="flex">
                     <Logo />
                 </div>
                 <div className="flex" style={{ textAlign: 'center', justifyContent: 'center', margin: '20px 0' }}>

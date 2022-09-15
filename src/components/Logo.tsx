@@ -2,7 +2,7 @@ import React, { SVGProps } from "react";
 
 function Logo({ ...rest }: SVGProps<SVGSVGElement>) {
   return (
-    <svg version="1.1" id="svg1495" viewBox="0 0 411 454" xmlns="http://www.w3.org/2000/svg" {...rest}>
+    <svg version="1.1" id="svg1495" viewBox="0 0 411 454" xmlns="http://www.w3.org/2000/svg" aria-label="Website Logo" aria-details="Logo com as letras D e V juntas e entrelaçadas" {...rest}>
       <defs id="defs1499"></defs>
 
       <g id="g1501">

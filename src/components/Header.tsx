@@ -39,7 +39,7 @@ export default function Header() {
             <div className="container flex flex-align-center flex-between header_container">
 
                 <Link href="/" >
-                    <a style={{ width: "55px", height: "58px" }} className="flex">
+                    <a style={{ width: "56px", height: "60px" }} className="flex">
                         <Logo />
                     </a>
                 </Link>
@@ -50,7 +50,7 @@ export default function Header() {
                     <div className="section-dropdown">
                         {langs.map((lang) => {
                             return (
-                                <button key={lang.code} onClick={changeLocale} value={lang.code} >{lang.nativeName} </button>
+                                <button key={lang.code} role="button" onClick={changeLocale} value={lang.code} >{lang.nativeName} </button>
                             )
                         })}
                     </div>
