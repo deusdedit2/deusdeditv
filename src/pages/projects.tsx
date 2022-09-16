@@ -5,246 +5,18 @@ import { LayoutGroup, motion } from "framer-motion";
 import { Card } from "../components/Card";
 import { useState } from "react";
 import classNames from "classnames";
+import { client } from "../lib/apollo";
+import { gql } from "@apollo/client";
+import { ProjectProps } from "../types/Projects";
 
-export default function Projects() {
+interface GetProjectsQueryResponse {
+  projects: ProjectProps
+}
+
+export default function Projects({projects}: GetProjectsQueryResponse) {
   const { locale } = useRouter();
   const [filter, setFilter] = useState('all')
 
-  const data = {
-    "projects": [
-      {
-        "id": "cl6wgpwivhcmb0disx0ix0ive",
-        "title": "Flor de Chita E-commerce",
-        "siteUrl": "https://flordechitateste.herokuapp.com/",
-        "githubUrl": "https://google.com",
-        "description": "Site E-commerce feito para uma loja de roupas.",
-        "image": {
-          "url": "https://media.graphassets.com/1Nfp8cTQRfK0nsIySAHp"
-        },
-        "langs": [
-          {
-            "id": "dj",
-            "name": "Django",
-            "langUrl": {
-              "url": "https://media.graphassets.com/DR7njt1tSkeTHrZZT4er"
-            }
-          },
-          {
-            "id": "hcj",
-            "name": "HTML+CSS+JS",
-            "langUrl": {
-              "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
-            }
-          },
-          {
-            "id": "pg",
-            "name": "Postgresql",
-            "langUrl": {
-              "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
-            }
-          }
-        ]
-      },
-      {
-        "id": "cl6wgpwivhcmb0disx0ix0ive",
-        "title": "Flor de Chita E-commerce",
-        "siteUrl": "https://flordechitateste.herokuapp.com/",
-        "githubUrl": null,
-        "description": "Site E-commerce feito para uma loja de roupas.",
-        "image": {
-          "url": "https://thumbs.dreamstime.com/b/seascape-abstrato-com-palmeira-fundo-tropical-da-praia-luz-do-bokeh-borr-o-mar-calmo-e-c-u-conceito-das-f-rias-de-ver-146142855.jpg"
-        },
-        "langs": [
-          {
-            "id": "dj",
-            "name": "Django",
-            "langUrl": {
-              "url": "https://media.graphassets.com/DR7njt1tSkeTHrZZT4er"
-            }
-          },
-          {
-            "id": "hcj",
-            "name": "HTML+CSS+JS",
-            "langUrl": {
-              "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
-            }
-          },
-          {
-            "id": "pg",
-            "name": "Postgresql",
-            "langUrl": {
-              "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
-            }
-          }
-        ]
-      },
-      {
-        "id": "cl6wgpwivhcmb0disx0ix0ive",
-        "title": "Flor de Chita E-commerce",
-        "siteUrl": "https://flordechitateste.herokuapp.com/",
-        "githubUrl": null,
-        "description": "Site E-commerce feito para uma loja de roupas.",
-        "image": {
-          "url": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2l0eXxlbnwwfHwwfHw%3D&w=1000&q=80"
-        },
-        "langs": [
-          // {
-          //   "id": "cl6wgfkaaj7ss0biz8dhpm1w0",
-          //   "name": "Django",
-          //   "langUrl": {
-          //     "url": "https://media.graphassets.com/DR7njt1tSkeTHrZZT4er"
-          //   }
-          // },
-          {
-            "id": "hcj",
-            "name": "HTML+CSS+JS",
-            "langUrl": {
-              "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
-            }
-          },
-          {
-            "id": "pg",
-            "name": "Postgresql",
-            "langUrl": {
-              "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
-            }
-          }
-        ]
-      },
-      {
-        "id": "cl6wgpwivhcmb0disx0ix0ive",
-        "title": "Flor de Chita E-commerce",
-        "siteUrl": "https://flordechitateste.herokuapp.com/",
-        "githubUrl": null,
-        "description": "Site E-commerce feito para uma loja de roupas.",
-        "image": {
-          "url": "http://pm1.narvii.com/7349/20496af691a3f529d64bdffade368e123b204328r1-640-526v2_uhq.jpg"
-        },
-        "langs": [
-          // {
-          //   "id": "cl6wgfkaaj7ss0biz8dhpm1w0",
-          //   "name": "Django",
-          //   "langUrl": {
-          //     "url": "https://media.graphassets.com/DR7njt1tSkeTHrZZT4er"
-          //   }
-          // },
-          {
-            "id": "hcj",
-            "name": "HTML+CSS+JS",
-            "langUrl": {
-              "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
-            }
-          },
-          {
-            "id": "pg",
-            "name": "Postgresql",
-            "langUrl": {
-              "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
-            }
-          }
-        ]
-      },
-      {
-        "id": "cl6wgpwivhcmb0disx0ix0ive",
-        "title": "Flor de Chita E-commerce",
-        "siteUrl": "https://flordechitateste.herokuapp.com/",
-        "githubUrl": null,
-        "description": "Site E-commerce feito para uma loja de roupas.",
-        "image": {
-          "url": "https://pbs.twimg.com/media/D8Dp0c5WkAAkvME.jpg"
-        },
-        "langs": [
-          // {
-          //   "id": "cl6wgfkaaj7ss0biz8dhpm1w0",
-          //   "name": "Django",
-          //   "langUrl": {
-          //     "url": "https://media.graphassets.com/DR7njt1tSkeTHrZZT4er"
-          //   }
-          // },
-          {
-            "id": "hcj",
-            "name": "HTML+CSS+JS",
-            "langUrl": {
-              "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
-            }
-          },
-          {
-            "id": "pg",
-            "name": "Postgresql",
-            "langUrl": {
-              "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
-            }
-          }
-        ]
-      },
-      {
-        "id": "cl6wgpwivhcmb0disx0ix0ive",
-        "title": "Flor de Chita E-commerce",
-        "siteUrl": "https://flordechitateste.herokuapp.com/",
-        "githubUrl": null,
-        "description": "Site E-commerce feito para uma loja de roupas.",
-        "image": {
-          "url": "https://64.media.tumblr.com/51ce939c3b7570134515eea1c7eb59ff/tumblr_n2pgeb86ro1tw7pebo1_400.jpg"
-        },
-        "langs": [
-          // {
-          //   "id": "cl6wgfkaaj7ss0biz8dhpm1w0",
-          //   "name": "Django",
-          //   "langUrl": {
-          //     "url": "https://media.graphassets.com/DR7njt1tSkeTHrZZT4er"
-          //   }
-          // },
-          {
-            "id": "hcj",
-            "name": "HTML+CSS+JS",
-            "langUrl": {
-              "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
-            }
-          },
-          {
-            "id": "pg",
-            "name": "Postgresql",
-            "langUrl": {
-              "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
-            }
-          }
-        ]
-      },
-      {
-        "id": "cl6wgpwivhcmb0disx0ix0ive",
-        "title": "Flor de Chita E-commerce",
-        "siteUrl": "https://flordechitateste.herokuapp.com/",
-        "githubUrl": null,
-        "description": "Site E-commerce feito para uma loja de roupas.",
-        "image": {
-          "url": "https://img-9gag-fun.9cache.com/photo/adKLM9V_460s.jpg"
-        },
-        "langs": [
-          // {
-          //   "id": "cl6wgfkaaj7ss0biz8dhpm1w0",
-          //   "name": "Django",
-          //   "langUrl": {
-          //     "url": "https://media.graphassets.com/DR7njt1tSkeTHrZZT4er"
-          //   }
-          // },
-          {
-            "id": "hcj",
-            "name": "HTML+CSS+JS",
-            "langUrl": {
-              "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
-            }
-          },
-          {
-            "id": "pg",
-            "name": "Postgresql",
-            "langUrl": {
-              "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
-            }
-          }
-        ]
-      },
-    ]
-  }
 
   const filterLangs = [
     {
@@ -270,7 +42,7 @@ export default function Projects() {
   ]
 
   const filteredProjs = filter != 'all' ?
-    data.projects.filter(item => { return item.langs.find(tag => { if (tag.id === filter) { return true } }); })
+    projects.projects.filter(item => { return item.langs.find(tag => { if (tag.abbreviation === filter) { return true } }); })
     : null
 
   return (
@@ -316,7 +88,7 @@ export default function Projects() {
             {
               filter === 'all' ?
 
-                data?.projects.map((project, count) => {
+                projects?.projects.map((project, count) => {
                   return (
                     <LayoutGroup key={count} id={`card-${count}`}>
                       <Card imageUrl={project.image.url} id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 150 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
@@ -349,9 +121,42 @@ export default function Projects() {
 }
 
 export async function getStaticProps({ locale }: any) {
+  const { data } = await client.query({
+    query: gql`
+    query MyQuery($locale: [Locale!]!) {
+      projects (
+        stage: PUBLISHED
+        locales: $locale
+      ) {
+        id
+        title
+        siteUrl
+        githubUrl
+        description
+        image {
+          url
+        }
+        langs {
+          ... on LangTag {
+            id
+            name
+            abbreviation
+            langUrl {
+              url
+            }
+          }
+        }
+      }
+    }
+    `,
+    variables: {
+      locale: [locale]
+    }
+  });
   return {
     props: {
       ...(await serverSideTranslations(locale)),
+      projects: data
     },
   };
 }

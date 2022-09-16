@@ -9,6 +9,7 @@ import Link from "next/link";
 import { NextSeo } from "next-seo";
 import { client } from "../lib/apollo";
 import { gql } from "@apollo/client";
+import { ProjectProps } from "../types/Projects";
 
 const cardLangs = [
   {
@@ -59,136 +60,18 @@ const cardLangs = [
 ]
 
 interface GetProjectsQueryResponse {
-  projects: {
-      id: string
-      title: string
-      siteUrl: string
-      githubUrl: string
-      description: string
-      image: {
-          url: string
-      }
-      langs: {
-          id: string;
-          name: string;
-          langUrl: {
-              url: string
-          }
-      }[]
-  }[]
+  projects: ProjectProps
 }
 
 type Params = {
   locale: string
 }
 
-export default function Home({projects}: GetProjectsQueryResponse) {
+export default function Home({ projects }: GetProjectsQueryResponse) {
   // const { locale } = useRouter();
   const { t } = useTranslation("home");
 
-  const data = {
-    "projects": [
-      {
-        "id": "cl6wgpwivhcmb0disx0ix0ive",
-        "title": "Flor de Chita E-commerce",
-        "siteUrl": "https://flordechitateste.herokuapp.com/",
-        "githubUrl": "https://google.com",
-        "description": "Site E-commerce feito para uma loja de roupas.",
-        "image": {
-          "url": "https://media.graphassets.com/1Nfp8cTQRfK0nsIySAHp"
-        },
-        "langs": [
-          {
-            "id": "cl6wgfkaaj7ss0biz8dhpm1w0",
-            "name": "Django",
-            "langUrl": {
-              "url": "https://media.graphassets.com/DR7njt1tSkeTHrZZT4er"
-            }
-          },
-          {
-            "id": "cl6wgk1bfhc0u0ck38l2oukzb",
-            "name": "HTML+CSS+JS",
-            "langUrl": {
-              "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
-            }
-          },
-          {
-            "id": "cl78bu48ed7650dim30cgs89i",
-            "name": "Postgresql",
-            "langUrl": {
-              "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
-            }
-          }
-        ]
-      },
-      {
-        "id": "cl6wgpwivhcmb0disx0ix0ive",
-        "title": "Flor de Chita E-commerce",
-        "siteUrl": "https://flordechitateste.herokuapp.com/",
-        "githubUrl": null,
-        "description": "Site E-commerce feito para uma loja de roupas.",
-        "image": {
-          "url": "https://media.graphassets.com/1Nfp8cTQRfK0nsIySAHp"
-        },
-        "langs": [
-          {
-            "id": "cl6wgfkaaj7ss0biz8dhpm1w0",
-            "name": "Django",
-            "langUrl": {
-              "url": "https://media.graphassets.com/DR7njt1tSkeTHrZZT4er"
-            }
-          },
-          {
-            "id": "cl6wgk1bfhc0u0ck38l2oukzb",
-            "name": "HTML+CSS+JS",
-            "langUrl": {
-              "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
-            }
-          },
-          {
-            "id": "cl78bu48ed7650dim30cgs89i",
-            "name": "Postgresql",
-            "langUrl": {
-              "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
-            }
-          }
-        ]
-      },
-      {
-        "id": "cl6wgpwivhcmb0disx0ix0ive",
-        "title": "Flor de Chita E-commerce",
-        "siteUrl": "https://flordechitateste.herokuapp.com/",
-        "githubUrl": null,
-        "description": "Site E-commerce feito para uma loja de roupas.",
-        "image": {
-          "url": "https://media.graphassets.com/1Nfp8cTQRfK0nsIySAHp"
-        },
-        "langs": [
-          {
-            "id": "cl6wgfkaaj7ss0biz8dhpm1w0",
-            "name": "Django",
-            "langUrl": {
-              "url": "https://media.graphassets.com/DR7njt1tSkeTHrZZT4er"
-            }
-          },
-          {
-            "id": "cl6wgk1bfhc0u0ck38l2oukzb",
-            "name": "HTML+CSS+JS",
-            "langUrl": {
-              "url": "https://media.graphassets.com/ffCwkcnJQS296LA8sjE7"
-            }
-          },
-          {
-            "id": "cl78bu48ed7650dim30cgs89i",
-            "name": "Postgresql",
-            "langUrl": {
-              "url": "https://media.graphassets.com/M0aGXKqZQQSIMREYtnDp"
-            }
-          }
-        ]
-      }
-    ]
-  }
+  console.log(process.env.NEXT_PUBLIC_PROJECT_IDS)
 
   const divAnim = {
     visible: { opacity: 1, display: "flex" },
@@ -249,9 +132,9 @@ export default function Home({projects}: GetProjectsQueryResponse) {
 
 
             {
-              data &&
+              projects &&
 
-              data?.projects.map((project, count) => {
+              projects?.projects.map((project, count) => {
                 return (
                   <li key={count}>
                     <LayoutGroup id={`card-${count}`}>
@@ -281,40 +164,44 @@ export default function Home({projects}: GetProjectsQueryResponse) {
 
 export async function getStaticProps({ locale }: Params) {
 
-  // const { data } = await client.query({
-  //   query: gql`
-  //   query MyQuery($locale: [Locale!]!) {
-  //     projects(stage: PUBLISHED, locales: $locale) {
-  //       id
-  //       title
-  //       siteUrl
-  //       githubUrl
-  //       description
-  //       image {
-  //         url
-  //       }
-  //       langs {
-  //         ... on LangTag {
-  //           id
-  //           name
-  //           abbreviation
-  //           langUrl {
-  //             url
-  //           }
-  //         }
-  //       }
-  //     }
-  //   }
-  //   `,
-  //   variables: {
-  //     locale: [locale]
-  //   }
-  // });
+  const { data } = await client.query({
+    query: gql`
+    query MyQuery($locale: [Locale!]!) {
+      projects (
+        stage: PUBLISHED
+        locales: $locale
+        where: {id_in: ${process.env.NEXT_PUBLIC_PROJECT_IDS}}
+      ) {
+        id
+        title
+        siteUrl
+        githubUrl
+        description
+        image {
+          url
+        }
+        langs {
+          ... on LangTag {
+            id
+            name
+            abbreviation
+            langUrl {
+              url
+            }
+          }
+        }
+      }
+    }
+    `,
+    variables: {
+      locale: [locale]
+    }
+  });
 
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["home","common"])),
-      // projects: data
+      ...(await serverSideTranslations(locale, ["home", "common"])),
+      projects: data
     },
   };
 }
