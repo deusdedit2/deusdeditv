@@ -131,7 +131,7 @@ $max_font: 24px;
 
 #home_projects {
     .see_more {
-        margin-top: 50px;
+        margin-top: 60px;
         text-align: center;
 
         p {
@@ -149,5 +149,40 @@ $max_font: 24px;
                 background: var(--color-secondary);
             }
         }
+    }
+}
+
+#contact {
+
+    h2 {
+        font-size: 3rem;
+    }
+
+    .text-desk, .text-mob {
+        width: 24rem;
+    }
+
+    .text-desk {
+        display: block;
+    }
+
+    .text-mob {
+        display: none;
+    }
+
+    @media screen and (max-width: 1250px) {
+        .text-desk {
+            display: none;
+        }
+    
+        .text-mob {
+            display: block;
+        }   
+    }
+
+    @media screen and (max-width: 480px) {
+        .text-desk, .text-mob {
+            width: auto;
+        }   
     }
 }

@@ -13,7 +13,7 @@ interface GetProjectsQueryResponse {
   projects: ProjectProps
 }
 
-export default function Projects({projects}: GetProjectsQueryResponse) {
+export default function Projects({ projects }: GetProjectsQueryResponse) {
   const { locale } = useRouter();
   const [filter, setFilter] = useState('all')
 
@@ -72,26 +72,15 @@ export default function Projects({projects}: GetProjectsQueryResponse) {
           <motion.ul
             style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: "30px", marginTop: "50px" }}>
 
-
-            {/* {
-              data &&
-
-              data?.projects.map((project, count) => {
-                return (
-                  <LayoutGroup key={count} id={`card-${count}`}>
-                    <Card id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layout="position" layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
-                  </LayoutGroup>
-                )
-              })
-            } */}
-
             {
               filter === 'all' ?
 
                 projects?.projects.map((project, count) => {
                   return (
                     <LayoutGroup key={count} id={`card-${count}`}>
-                      <Card imageUrl={project.image.url} id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 150 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
+                      <li key={count}>
+                        <Card imageUrl={project.image.url} id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 150 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
+                      </li>
                     </LayoutGroup>
                   )
                 })
@@ -102,7 +91,9 @@ export default function Projects({projects}: GetProjectsQueryResponse) {
                   filteredProjs.map((project, count) => {
                     return (
                       <LayoutGroup key={count} id={`card-${count}`}>
-                        <Card imageUrl={project.image.url} id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 150 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
+                        <li>
+                          <Card imageUrl={project.image.url} id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 150 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
+                        </li>
                       </LayoutGroup>
                     )
                   })

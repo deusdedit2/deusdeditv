@@ -17,5 +17,10 @@
     "title": "Some of my works",
     "likeit": "Like it?",
     "seemore": "See more"
+  },
+  "contact": {
+    "title": "Now what?",
+    "txtdesk": "Well, you can contact me through these social networks on the side.",
+    "txtmob": "Well, you can contact me through these social networks below."
   }
 }

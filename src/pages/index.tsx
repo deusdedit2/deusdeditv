@@ -10,6 +10,7 @@ import { NextSeo } from "next-seo";
 import { client } from "../lib/apollo";
 import { gql } from "@apollo/client";
 import { ProjectProps } from "../types/Projects";
+import { Social } from "../components/Social";
 
 const cardLangs = [
   {
@@ -71,8 +72,6 @@ export default function Home({ projects }: GetProjectsQueryResponse) {
   // const { locale } = useRouter();
   const { t } = useTranslation("home");
 
-  console.log(process.env.NEXT_PUBLIC_PROJECT_IDS)
-
   const divAnim = {
     visible: { opacity: 1, display: "flex" },
     hidden: { opacity: 0, display: "none" },
@@ -121,11 +120,8 @@ export default function Home({ projects }: GetProjectsQueryResponse) {
 
         </section>
 
-        <section className="section" id="home_projects">
+        <section className="section section-small" id="home_projects">
           <h2>{t('projects.title')}</h2>
-          {/* <div>
-                        <motion.hr style={{ border: "none", borderBottom: "1px solid #fff" }} initial={{ rotateY: 90 }} whileInView={{ rotateY: 0 }} transition={{ duration: 1 }} />
-                    </div> */}
 
           <motion.ul
             style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: "30px", marginTop: "50px" }}>
@@ -154,6 +150,15 @@ export default function Home({ projects }: GetProjectsQueryResponse) {
             </Link>
           </div>
 
+        </section>
+
+        <section id="contact">
+          {/* <div className="section section-small"> */}
+              {/* <h2>{t("contact.title")}</h2> */}
+              {/* <p className="text-desk">{t("contact.txtdesk")}</p> */}
+              {/* <p className="text-mob">{t("contact.txtmob")}</p> */}
+              <Social mobile />
+          {/* </div> */}
         </section>
 
       </main>

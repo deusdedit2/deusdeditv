@@ -17,5 +17,10 @@
     "title": "Alguns dos meus projetos",
     "likeit": "Gostou?",
     "seemore": "Ver mais"
+  },
+  "contact": {
+    "title": "E agora?",
+    "txtdesk": "Bem, você pode entrar em contato comigo por essas redes sociais aqui do lado.",
+    "txtmob": "Bem, você pode entrar em contato comigo por essas redes sociais aqui embaixo"
   }
 }

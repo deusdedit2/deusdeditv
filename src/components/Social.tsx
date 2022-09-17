@@ -1,10 +1,16 @@
+import classNames from "classnames"
 import { motion } from "framer-motion"
 
-export function SocialSide() {
+interface Props {
+    mobile?: boolean | null
+}
+
+export function Social({mobile}: Props) {
+
 
     return (
-        <div aria-orientation="vertical" className="social-side">
-            <ul>
+        <div aria-orientation="vertical" className={classNames("social", {"mobile": mobile})}>
+            <ul className={classNames({"mobile": mobile})}>
 
                 <motion.li>
                     <a href="https://github.com/deusdeditvilar" target="_blank" rel="noreferrer">

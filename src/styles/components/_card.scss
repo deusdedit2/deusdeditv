@@ -55,8 +55,8 @@
 
     .plus {
         position: absolute;
-        left: 0;
-        right: 0;
+        // left: 0;
+        // right: 0;
         margin-left: auto;
         margin-right: auto;
         height: 100%;
@@ -68,8 +68,8 @@
     
         &.open {
             transform: none;
-            right: 15px;
-            left: auto;
+            // right: 15px;
+            // left: auto;
             pointer-events: all;
         }
     }

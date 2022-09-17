@@ -18,18 +18,27 @@ export const openSpring = { type: "spring", stiffness: 200, damping: 30 };
 export const closeSpring = { type: "spring", stiffness: 300, damping: 35 };
 const plus = {
     hidden: {
-        top: "200%",
+        top: "400px",
         transform: "rotateZ(0)",
-        transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.05 }
+        opacity: 0,
+        left: 0,
+        right: 0,
+        transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.2 }
     },
     visible: {
-        top: "38%",
-        transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.05 }
+        top: "172px",
+        opacity: 1,
+        left: 0,
+        right: 0,
+        transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.2 }
     },
     open: {
         top: "24px",
         transform: 'rotateZ(45deg)',
-        transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.05 }
+        opacity: 1,
+        right: 15,
+        left: "auto",
+        transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.2 }
     }
 };
 
