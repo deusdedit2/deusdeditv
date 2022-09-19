@@ -45,9 +45,8 @@ export const AnimatedLetters: FC<LettersProps> = ({ text, className, as: Tag = "
                                     key={index}
                                 >
                                     <motion.span
-                                        style={{ display: "inline-block" }}
                                         variants={item}
-                                        className="row-letter"
+                                        className="row-letter inline-block"
                                     >
                                         {element}
                                     </motion.span>

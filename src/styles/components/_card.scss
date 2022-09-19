@@ -43,9 +43,29 @@
             padding: 20px;
         }
 
-        .card-footer svg {
-            width: inherit;
-            height: inherit;
+        .card-footer {
+            border-top: 1px solid #666;
+            margin: 0 20px;
+            padding: 10px 0;
+            background-color: inherit;
+
+            img, a {
+                width: 1.5rem;
+                height: 1.5rem;
+            }
+
+            img {
+                margin: 0 2px;
+            }
+
+            a {
+                margin: 0 4px;
+            }
+            
+            svg {
+                width: inherit;
+                height: inherit;
+            }
         }
     }
 
@@ -55,8 +75,6 @@
 
     .plus {
         position: absolute;
-        // left: 0;
-        // right: 0;
         margin-left: auto;
         margin-right: auto;
         height: 100%;
@@ -70,11 +88,9 @@
 
         &.open {
             transform: none;
-            // right: 15px;
-            // left: auto;
             pointer-events: all;
 
-            @media screen and (max-width: 768px) {
+            @media screen and (max-width: $tablet-breakpoint) {
                 width: 2rem;
                 right: 32px !important;
             }
@@ -95,10 +111,6 @@
             cursor: auto;
         }
 
-        // .card-image-container {
-        //     height: auto;
-        // }
-
         img.card-image {
             max-width: 100%;
             height: auto;
@@ -116,7 +128,7 @@
             max-width: 50%;
         }
 
-        @media only screen and (max-width: 768px) {
+        @media only screen and (max-width: $tablet-breakpoint) {
             .card-content {
                 max-width: fit-content;
                 top: auto;

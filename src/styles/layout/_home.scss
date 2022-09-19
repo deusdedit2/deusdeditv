@@ -1,8 +1,3 @@
-$min_width: 320px;
-$max_width: 1200px;
-$min_font: 16px;
-$max_font: 24px;
-
 .banner {
     z-index: 33;
     position: relative;
@@ -23,19 +18,18 @@ $max_font: 24px;
             }
         }
 
-        @media screen and (max-width: 480px) {
+        @media screen and (max-width: $mobile-breakpoint) {
             padding-bottom: 10vh;
         }
     }
 
     h1, h3 {
-        @include fluid-type($min_width, $max_width, $min_font, $max_font);
+        @include fluid-type($fold-breakpoint, $desktop-breakpoint, 16px, 24px);
         line-height: 1.15;
     }
 
     .hero-title {
-        // font-size: 4.3rem;
-        @include fluid-type($min_width, $max_width, 45px, 75px);
+        @include fluid-type($fold-breakpoint, $desktop-breakpoint, 36px, 75px);
         text-transform: uppercase;
         line-height: 1.15;
         position: relative;
@@ -44,8 +38,6 @@ $max_font: 24px;
 
 .about {
     .sticky-texts {
-        // position: sticky;
-        /* top: 180px; */
         top: 143px;
         height: 100%;
         max-width: 50%;
@@ -63,6 +55,7 @@ $max_font: 24px;
         flex-flow: row wrap;
         justify-content: space-between;
         align-content: space-between;
+        width: 100%;
 
         @supports (display: grid) and (gap: 22px) {
             gap: 22px;
@@ -71,10 +64,6 @@ $max_font: 24px;
         }
 
         .card-lang {
-            /* border: 1px solid var(--color-secondary); */
-            // position: -webkit-sticky;
-            // position: sticky;
-            /* margin: 30px 0; */
             top: 180px;
             padding: 20px;
             background-color: rgba(18, 32, 50, 0.9);
@@ -84,19 +73,14 @@ $max_font: 24px;
             -webkit-backdrop-filter: blur(18px);
             backdrop-filter: blur(18px);
             border-radius: 9px;
-            /* gap: 35px; */
             align-self: center;
             place-content: center;
             transition: all 0.5s ease;
             margin: 10px 20px;
             
             @supports (display: grid) and (gap: 22px) {
-                
                 margin: 0;
-                
             }
-
-            
 
             &:hover {
                 transform: scale(1.15) !important;
@@ -109,7 +93,7 @@ $max_font: 24px;
         }
     }
 
-    @media screen and (max-width: 850px) {
+    @media screen and (max-width: $tablet-large-breakpoint) {
         position: relative;
         top: 0;
         max-width: 100%;
@@ -149,40 +133,5 @@ $max_font: 24px;
                 background: var(--color-secondary);
             }
         }
-    }
-}
-
-#contact {
-
-    h2 {
-        font-size: 3rem;
-    }
-
-    .text-desk, .text-mob {
-        width: 24rem;
-    }
-
-    .text-desk {
-        display: block;
-    }
-
-    .text-mob {
-        display: none;
-    }
-
-    @media screen and (max-width: 1250px) {
-        .text-desk {
-            display: none;
-        }
-    
-        .text-mob {
-            display: block;
-        }   
-    }
-
-    @media screen and (max-width: 480px) {
-        .text-desk, .text-mob {
-            width: auto;
-        }   
     }
 }

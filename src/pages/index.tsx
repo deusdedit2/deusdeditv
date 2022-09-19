@@ -70,24 +70,16 @@ type Params = {
 export default function Home({ projects }: GetProjectsQueryResponse) {
   const { t } = useTranslation("home");
 
-  const divAnim = {
-    visible: { opacity: 1, display: "flex" },
-    hidden: { opacity: 0, display: "none" },
-  }
-
   return (
     <>
       <NextSeo title="Home" />
 
-      {/* <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 3 }, display: { delay: 5 }, duration: 9 }}>
-        <Loading />
-      </motion.div> */}
-
+      <Loading />
 
       <main className="container">
         <Hero />
 
-        <section className="section section-large" style={{ paddingTop: 0 }}>
+        <section className="section section-large" style={{ paddingTop: 0 }} id="about">
 
           <div className="about flex flex-between gap-md">
             <div className="sticky-texts flex flex-column flex-self-center">
@@ -120,9 +112,7 @@ export default function Home({ projects }: GetProjectsQueryResponse) {
         <section className="section section-small" id="home_projects">
           <h2>{t('projects.title')}</h2>
 
-          <motion.ul
-            style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill,minmax(300px,1fr))", gap: "30px", marginTop: "50px" }}>
-
+          <motion.ul className="cards-grid">
 
             {
               projects &&

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { useTranslation } from "next-i18next";
 import { motion } from "framer-motion"
 import classNames from "classnames";
 
@@ -15,8 +14,6 @@ const langs = [
 export default function Header() {
 
     const [active, setActive] = useState(false)
-    const { t } = useTranslation();
-
     const router = useRouter();
 
     useEffect(() => {
@@ -39,7 +36,7 @@ export default function Header() {
             <div className="container flex flex-align-center flex-between header_container">
 
                 <Link href="/" >
-                    <a style={{ width: "56px", height: "60px" }} aria-label="Website Logo" className="flex">
+                    <a aria-label="Website Logo" className="flex logo-box">
                         <Logo />
                     </a>
                 </Link>
