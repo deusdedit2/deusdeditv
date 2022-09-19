@@ -39,7 +39,7 @@ export default function Header() {
             <div className="container flex flex-align-center flex-between header_container">
 
                 <Link href="/" >
-                    <a style={{ width: "56px", height: "60px" }} className="flex">
+                    <a style={{ width: "56px", height: "60px" }} aria-label="Website Logo" className="flex">
                         <Logo />
                     </a>
                 </Link>

@@ -14,16 +14,22 @@ function MyApp({ Component, pageProps }: AppProps) {
     <>
       <DefaultSeo
         titleTemplate='Deusdedit Vilar | %s'
+        canonical='https://deusdeditv.vercel.app'
         additionalLinkTags={[
           {
             rel: 'icon',
-            href: 'logo2.ico',
+            href: 'https://deusdeditv.vercel.app/logo.ico',
           }
         ]}
+        languageAlternates={[{
+          hrefLang: 'en',
+          href: 'https://www.deusdeditv.vercel.app/en',
+        }]}
+        description="Deusdedit Vilar é um engenheiro de software especializado em construir experiências digitais excepcionais."
         additionalMetaTags={[
           {
             property: 'keywords',
-            content: "developer,fullstack,frontend,backend,dev"
+            content: "Deusdedit Vilar,desenvolvedor,developer,fullstack,Full-Stack,frontend,backend,dev,portfolio"
           }
         ]}
         openGraph={{

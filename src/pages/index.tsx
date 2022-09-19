@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import { motion, LayoutGroup } from "framer-motion";
@@ -69,7 +68,6 @@ type Params = {
 }
 
 export default function Home({ projects }: GetProjectsQueryResponse) {
-  // const { locale } = useRouter();
   const { t } = useTranslation("home");
 
   const divAnim = {
@@ -81,9 +79,9 @@ export default function Home({ projects }: GetProjectsQueryResponse) {
     <>
       <NextSeo title="Home" />
 
-      <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 3 }, display: { delay: 5 }, duration: 9 }}>
+      {/* <motion.div className="logo-container" initial="visible" whileInView="hidden" viewport={{ once: true }} variants={divAnim} transition={{ opacity: { delay: 3 }, display: { delay: 5 }, duration: 9 }}>
         <Loading />
-      </motion.div>
+      </motion.div> */}
 
 
       <main className="container">
@@ -96,7 +94,6 @@ export default function Home({ projects }: GetProjectsQueryResponse) {
               <h2>{t('about.title')}</h2>
               <p>{t('about.desc.first')}</p>
               <p>{t('about.desc.second')}</p>
-              {/* <p style={{textAlign: "justify", marginTop: "20px"}}>{t('about.desc.third')}</p> */}
 
             </div>
 
@@ -134,7 +131,7 @@ export default function Home({ projects }: GetProjectsQueryResponse) {
                 return (
                   <li key={count}>
                     <LayoutGroup id={`card-${count}`}>
-                      <Card imageUrl={project.image.url} id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layout="position" layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
+                      <Card imageUrl={project.image.url} imageWidth={project.image.width} imageHeight={project.image.height} id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layout="position" layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
                     </LayoutGroup>
                   </li>
                 )
@@ -144,7 +141,6 @@ export default function Home({ projects }: GetProjectsQueryResponse) {
           </motion.ul>
 
           <div className="see_more">
-            {/* <p>{t('projects.likeit')}</p> */}
             <Link href={"/projects"}>
               <a >{t('projects.seemore')}</a>
             </Link>
@@ -153,12 +149,7 @@ export default function Home({ projects }: GetProjectsQueryResponse) {
         </section>
 
         <section id="contact">
-          {/* <div className="section section-small"> */}
-              {/* <h2>{t("contact.title")}</h2> */}
-              {/* <p className="text-desk">{t("contact.txtdesk")}</p> */}
-              {/* <p className="text-mob">{t("contact.txtmob")}</p> */}
-              <Social mobile />
-          {/* </div> */}
+          <Social mobile />
         </section>
 
       </main>
@@ -192,6 +183,8 @@ export async function getStaticProps({ locale }: Params) {
             abbreviation
             langUrl {
               url
+              height
+              width
             }
           }
         }

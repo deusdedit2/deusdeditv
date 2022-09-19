@@ -22,7 +22,7 @@
             left: 0;
             overflow: hidden;
             height: 420px;
-            transition: all .3s ease;
+            transition: all 0.3s ease;
 
             .card-image {
                 width: 100%;
@@ -61,16 +61,23 @@
         margin-right: auto;
         height: 100%;
         pointer-events: none;
-        transition: all .5s ease;
+        transition: all 0.5s ease;
         cursor: pointer;
         width: 3rem;
         height: 3rem;
-    
+        background: transparent;
+        border: none;
+
         &.open {
             transform: none;
             // right: 15px;
             // left: auto;
             pointer-events: all;
+
+            @media screen and (max-width: 768px) {
+                width: 2rem;
+                right: 32px !important;
+            }
         }
     }
 
@@ -106,6 +113,7 @@
         .title-container {
             top: 30px;
             left: 30px;
+            max-width: 50%;
         }
 
         @media only screen and (max-width: 768px) {

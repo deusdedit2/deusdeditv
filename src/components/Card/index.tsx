@@ -12,6 +12,8 @@ export interface cardProps extends MotionProps, FooterProps {
     title: string;
     description: string;
     imageUrl: string;
+    imageWidth?: number | null;
+    imageHeight?: number | null;
 }
 
 export const openSpring = { type: "spring", stiffness: 200, damping: 30 };
@@ -42,7 +44,7 @@ const plus = {
     }
 };
 
-export function Card({ title, description, imageUrl, options, id, siteUrl, ghUrl, ...rest }: cardProps) {
+export function Card({ title, description, imageUrl, imageWidth, imageHeight, options, id, siteUrl, ghUrl, ...rest }: cardProps) {
     const [isExpanded, setIsExpanded] = useState(false);
     const zIndex = useMotionValue(isExpanded ? 2 : 0);
     const controls = useAnimationControls()
@@ -82,10 +84,10 @@ export function Card({ title, description, imageUrl, options, id, siteUrl, ghUrl
                             layout={true}
                             onUpdate={checkZIndex}
                         >
-                            <ImageContainer src={imageUrl} />
+                            <ImageContainer width={imageWidth} height={imageHeight} src={imageUrl} />
 
                             <TitleContainer isExpanded={isExpanded} title={title} />
-                            <motion.div aria-label="Close Card" onClick={() => setIsExpanded(false)} className={classNames("plus", { 'open': isExpanded })} variants={plus} animate={controls}>
+                            <motion.button aria-label="Close Card" onClick={() => setIsExpanded(false)} className={classNames("plus", { 'open': isExpanded })} variants={plus} animate={controls}>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     x="0"
@@ -98,7 +100,7 @@ export function Card({ title, description, imageUrl, options, id, siteUrl, ghUrl
                                 >
                                     <path d="M289.391 222.609L289.391 0 222.609 0 222.609 222.609 0 222.609 0 289.391 222.609 289.391 222.609 512 289.391 512 289.391 289.391 512 289.391 512 222.609z"></path>
                                 </svg>
-                            </motion.div>
+                            </motion.button>
                             <ContentContainer description={description} />
 
                             <CardFooter options={options} ghUrl={ghUrl} siteUrl={siteUrl} />

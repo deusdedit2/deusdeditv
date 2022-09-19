@@ -79,7 +79,7 @@ export default function Projects({ projects }: GetProjectsQueryResponse) {
                   return (
                     <LayoutGroup key={count} id={`card-${count}`}>
                       <li key={count}>
-                        <Card imageUrl={project.image.url} id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 150 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
+                        <Card imageUrl={project.image.url} imageWidth={project.image.width} imageHeight={project.image.height} id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 150 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
                       </li>
                     </LayoutGroup>
                   )
@@ -92,7 +92,7 @@ export default function Projects({ projects }: GetProjectsQueryResponse) {
                     return (
                       <LayoutGroup key={count} id={`card-${count}`}>
                         <li>
-                          <Card imageUrl={project.image.url} id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 150 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
+                          <Card imageUrl={project.image.url} imageWidth={project.image.width} imageHeight={project.image.height} id={project.id} options={project.langs} siteUrl={project.siteUrl} ghUrl={project.githubUrl} layoutId={`card-${count}`} title={project.title} description={project.description} key={project.id} initial={{ opacity: 0, y: 150 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 150 }} transition={{ duration: 0.5, delay: count * .2 }} viewport={{ once: true }} />
                         </li>
                       </LayoutGroup>
                     )
@@ -126,6 +126,8 @@ export async function getStaticProps({ locale }: any) {
         description
         image {
           url
+          width
+          height
         }
         langs {
           ... on LangTag {
