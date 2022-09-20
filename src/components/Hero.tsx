@@ -2,20 +2,21 @@ import React, { useEffect, useRef } from "react";
 import { motion, useAnimationControls, useInView } from "framer-motion";
 import { AnimatedLetters } from "./AnimatedLetters";
 import { useTranslation } from "react-i18next";
+import { useRouter } from "next/router";
 
 
 export const Hero = () => {
     const { t } = useTranslation("home");
     const placeholderText = [
-        { 
+        {
             as: "h1",
             text: t("hero.top"),
-            class: "hero-top" 
+            class: "hero-top"
         },
-        { 
+        {
             as: "h2",
             text: t("hero.middle"),
-            class: "hero-title" 
+            class: "hero-title"
         },
         {
             as: "h3",
@@ -33,9 +34,19 @@ export const Hero = () => {
         }
     };
 
+    const resume = {
+        hidden: {
+            opacity: 0
+        },
+        visible: {
+            opacity: 1
+        }
+    }
+
     const controls = useAnimationControls()
     const ref = useRef(null)
     const isInView = useInView(ref)
+    const { locale } = useRouter()
 
     useEffect(() => {
         isInView && (
@@ -58,6 +69,7 @@ export const Hero = () => {
                 {placeholderText.map((item, index) => {
                     return <AnimatedLetters className={item.class} {...item} key={index} />;
                 })}
+                <motion.a variants={resume} animate={controls} className="resume-button" href={locale == 'en' ? "https://media.graphassets.com/DYdlv5WqRYasw0kXrZix" : "https://media.graphassets.com/GwTORoMWTDyw8RFmLiBy"} target="_blank" rel="noopener noreferrer">{t("hero.resume")}</motion.a>
             </motion.div>
         </motion.section>
     )
