@@ -12,11 +12,11 @@ export const AnimatedLetters: FC<LettersProps> = ({ text, className, as: Tag = "
     const item = {
         hidden: {
             y: "200%",
-            transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 }
+            transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 }
         },
         visible: {
             y: 0,
-            transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 }
+            transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.65 }
         }
     };
 

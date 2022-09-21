@@ -39,7 +39,10 @@ export const Hero = () => {
             opacity: 0
         },
         visible: {
-            opacity: 1
+            opacity: 1,
+            transition: {
+                delay: 4.4
+            }
         }
     }
 
@@ -69,7 +72,7 @@ export const Hero = () => {
                 {placeholderText.map((item, index) => {
                     return <AnimatedLetters className={item.class} {...item} key={index} />;
                 })}
-                <motion.a variants={resume} animate={controls} className="resume-button" href={locale == 'en' ? "https://media.graphassets.com/DYdlv5WqRYasw0kXrZix" : "https://media.graphassets.com/GwTORoMWTDyw8RFmLiBy"} target="_blank" rel="noopener noreferrer">{t("hero.resume")}</motion.a>
+                <motion.a variants={resume} animate={controls} initial="hidden" className="resume-button" href={locale == 'en' ? "https://media.graphassets.com/DYdlv5WqRYasw0kXrZix" : "https://media.graphassets.com/GwTORoMWTDyw8RFmLiBy"} target="_blank" rel="noopener noreferrer">{t("hero.resume")}</motion.a>
             </motion.div>
         </motion.section>
     )
