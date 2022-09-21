@@ -1,3 +1,9 @@
+declare global {
+    interface Window {
+        gtag:any;
+    }
+}
+
 export const pageview = (url: string) => {
     window.gtag('config', process.env.NEXT_PUBLIC_GTAG_ID, {
         page_path: url,
