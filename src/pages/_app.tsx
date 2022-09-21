@@ -9,21 +9,10 @@ import { DefaultSeo } from 'next-seo';
 import { Social } from '../components/Social';
 import Footer from '../components/Footer';
 import Header from '../components/Header'
-import * as gtag from '../lib/gtag';
-import Analytics from '../components/Analytics';
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter()
 
-  useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      gtag.pageview(url)
-    }
-    router.events.on('routeChangeComplete', handleRouteChange)
-    return () => {
-      router.events.off('routeChangeComplete', handleRouteChange)
-    }
-  }, [router.events])
   return (
     <>
       <DefaultSeo
@@ -67,7 +56,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
       <Footer />
-      <Analytics />
     </>
   )
 }
